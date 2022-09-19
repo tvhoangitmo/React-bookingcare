@@ -1,0 +1,74 @@
+{
+    "homeheader": {
+        "specialty": "Medical specialty",
+        "searchdoctor": "Find a doctor by specialty",
+        "health-facility": "Health facilities",
+        "select-hospital": "Choose a hospital, clinic",
+        "doctor": "Doctor",
+        "select-doctor": "Choose a good doctor",
+        "package": "Checkup package",
+        "general-health": "General health check",
+        "support": "Support",
+        "welcome": "Welcome, "
+    },
+    "homebanner": {
+        "title1": "MEDICAL BACKGROUND",
+        "title2": "COMPREHENSIVE HEALTH CARE",
+        "child1": "Specialist examination",
+        "child2": "Remote examination",
+        "child3": "General examination",
+        "child4": "Medical test",
+        "child5": "Mental health",
+        "child6": "Dental examination"
+    },
+    "homespecialty": {
+        "specialtypopular": "Popular specialties",
+        "more": "More",
+        "specialty1": "Muscles Bones Joints",
+        "specialty2": "Neurology",
+        "specialty3": "Gastroenterology",
+        "specialty4": "Cardiology",
+        "specialty5": "Ear Nose Throat",
+        "specialty6": "Traditional Medicine"
+    },
+    "homefacility": {
+        "outstanding": "Outstanding medical facility",
+        "search": "Search",
+        "facility1": "Cho Ray Hospital",
+        "facility2": "University Hospital of Medicine and Pharmacy I",
+        "facility3": "K Hospital",
+        "facility4": "Vietnam-Germany Hospital",
+        "facility5": "Central Hospital of Traditional Medicine",
+        "facility6": "Meditec Clinic"
+    },
+    "menu": {
+        "admin": {
+            "manage-user": "Users",
+            "manage-doctor": "Manage doctors",
+            "manage-admin": "Manage admin",
+            "crud": "CRUD user",
+            "crud-redux": "CRUD Redux",
+            "clinic": "Clinics",
+            "manage-clinic": "Manage clinics",
+            "specialty": "Specialties",
+            "manage-specialty": "Manage specialties",
+            "handbook": "Handbook",
+            "manage-handbook": "Manage handbook"
+        }
+    },
+    "manage-user": {
+        "add": "Add new user",
+        "email": "Email",
+        "password": "Password",
+        "first-name": "Name",
+        "last-name": "Surname",
+        "phone": "Phone Number",
+        "address": "Address",
+        "gender": "Gender",
+        "position": "Position",
+        "roleid": "Role",
+        "image": "Avatar",
+        "save": "Save user",
+        "upload-image": "Upload image"
+    }
+}
