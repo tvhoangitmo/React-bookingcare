@@ -66,9 +66,10 @@
         "address": "Address",
         "gender": "Gender",
         "position": "Position",
-        "roleid": "Role",
+        "role": "Role",
         "image": "Avatar",
         "save": "Save user",
+        "edit": "Save changes",
         "upload-image": "Upload image"
     }
 }

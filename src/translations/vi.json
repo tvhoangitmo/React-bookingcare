@@ -82,9 +82,10 @@
         "address": "Địa chỉ",
         "gender": "Giới tính",
         "position": "Chức danh",
-        "roleid": "Vai trò",
+        "role": "Vai trò",
         "image": "Ảnh đại diện",
         "save": "Lưu người dùng",
+        "edit": "Lưu thay đổi",
         "upload-image": "Tải ảnh"
     }
 }
