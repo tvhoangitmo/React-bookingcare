@@ -4,16 +4,37 @@ import Slider from 'react-slick';
 import { LANGUAGES } from '../../../utils';
 import { changeLanguageApp } from '../../../store/actions';
 import { FormattedMessage } from 'react-intl';
-
+import * as actions from '../../../store/actions'
 
 class OutstandingDoctor extends Component {
-
-    changeLanguage = (language) => {
-        this.props.changeLanguageAppRedux(language)
+    constructor(props) {
+        super(props)
+        this.state = {
+            arrDoctor: []
+        }
     }
 
-    render() {
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        if (prevProps.topDoctorsRedux !== this.props.topDoctorsRedux) {
+            this.setState({
+                arrDoctor: this.props.topDoctorsRedux
+            })
+        }
+    }
 
+    // changeLanguage = (language) => {
+    //     this.props.changeLanguageAppRedux(language)
+    // }
+    componentDidMount() {
+        this.props.loadTopDoctors()
+    }
+    render() {
+        // console.log('check top doctor redux: ', this.props.topDoctorsRedux)
+        console.log(this.props.language)
+        let language = this.props.language
+        let arrDoctor = this.state.arrDoctor
+        //arrDoctor = arrDoctor.concat(arrDoctor).concat(arrDoctor).concat(arrDoctor).concat(arrDoctor)
+        //console.log(arrDoctor)
         return (
             <React.Fragment>
                 <div className=' section-share'>
@@ -24,72 +45,40 @@ class OutstandingDoctor extends Component {
                         </div>
                         <div className='section-body'>
                             <Slider {...this.props.settings}>
-                                <div className='section-customize'>
-                                    <div className='customize-border'>
-                                        <div className='outer-bg'>
-                                            <div className='section-outstanding-doctor  doctor-img1 '></div>
-                                        </div>
-                                        <div className='position text-center'>
-                                            <div><FormattedMessage id='homedoctor.doctor1' /></div>
-                                            <div><FormattedMessage id='homedoctor.specialtydoctor1' /></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className='section-customize'>
-                                    <div className='customize-border'>
-                                        <div className='outer-bg'>
-                                            <div className=' doctor-img2 section-outstanding-doctor'></div>
-                                        </div>
-                                        <div className='position text-center'>
-                                            <div><FormattedMessage id='homedoctor.doctor2' /></div>
-                                            <div><FormattedMessage id='homedoctor.specialtydoctor2' /></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className='section-customize'>
-                                    <div className='customize-border'>
-                                        <div className='outer-bg'>
-                                            <div className=' doctor-img3 section-outstanding-doctor'></div>
-                                        </div>
-                                        <div className='position text-center'>
-                                            <div><FormattedMessage id='homedoctor.doctor3' /></div>
-                                            <div><FormattedMessage id='homedoctor.specialtydoctor3' /></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className='section-customize'>
-                                    <div className='customize-border'>
-                                        <div className='outer-bg'>
-                                            <div className=' doctor-img4 section-outstanding-doctor'></div>
-                                        </div>
-                                        <div className='position text-center'>
-                                            <div><FormattedMessage id='homedoctor.doctor4' /></div>
-                                            <div><FormattedMessage id='homedoctor.specialtydoctor4' /></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className='section-customize'>
-                                    <div className='customize-border'>
-                                        <div className='outer-bg'>
-                                            <div className=' doctor-img5 section-outstanding-doctor'></div>
-                                        </div>
-                                        <div className='position text-center'>
-                                            <div><FormattedMessage id='homedoctor.doctor5' /></div>
-                                            <div><FormattedMessage id='homedoctor.specialtydoctor5' /></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className='section-customize'>
-                                    <div className='customize-border'>
-                                        <div className='outer-bg'>
-                                            <div className=' doctor-img6 section-outstanding-doctor'></div>
-                                        </div>
-                                        <div className='position text-center'>
-                                            <div><FormattedMessage id='homedoctor.doctor6' /></div>
-                                            <div><FormattedMessage id='homedoctor.specialtydoctor6' /></div>
-                                        </div>
-                                    </div>
-                                </div>
+                                {arrDoctor && arrDoctor.length > 0
+                                    && arrDoctor.map((item, index) => {
+                                        let imageBase64 = ''
+                                        if (item.image) {
+                                            imageBase64 = new Buffer(item.image, 'base64').toString('binary')
+                                        }
+                                        let nameVi = `${item.positionData.valueVi}, ${item.lastName} ${item.firstName}`
+                                        let nameEn = ''
+                                        if (item.positionData.valueEn === 'None') {
+                                            nameEn = `Doctor, ${item.lastName} ${item.firstName}`
+                                        }
+                                        else {
+                                            nameEn = `${item.positionData.valueEn}, ${item.lastName} ${item.firstName}`
+                                        }
+
+                                        let nameRu = `${item.positionData.valueRu}, ${item.lastName} ${item.firstName}`
+                                        return (
+                                            <div className='section-customize' key={index}>
+                                                <div className='customize-border'>
+                                                    <div className='outer-bg'>
+                                                        <div className='section-outstanding-doctor  doctor-img1 '
+                                                            style={{ backgroundImage: `url(${imageBase64})` }}
+                                                        ></div>
+                                                    </div>
+                                                    <div className='position text-center'>
+                                                        <div>{language === LANGUAGES.VI ? nameVi : (language === LANGUAGES.EN ? nameEn : nameRu)}</div>
+                                                        <div><FormattedMessage id='homedoctor.specialtydoctor1' /></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        )
+                                    })
+
+                                }
                             </Slider>
                         </div>
                     </div>
@@ -104,11 +93,13 @@ const mapStateToProps = state => {
     return {
         isLoggedIn: state.user.isLoggedIn,
         language: state.app.language,
+        topDoctorsRedux: state.admin.topDoctors
     };
 };
 
 const mapDispatchToProps = dispatch => {
     return {
+        loadTopDoctors: () => dispatch(actions.fetchTopDoctors())
     };
 };
 
