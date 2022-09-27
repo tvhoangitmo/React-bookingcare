@@ -6,7 +6,8 @@ const initialState = {
     roles: [],
     positions: [],
     users: [],
-    topDoctors: []
+    topDoctors: [],
+    allDoctors: []
 }
 
 const adminReducer = (state = initialState, action) => {
@@ -102,6 +103,22 @@ const adminReducer = (state = initialState, action) => {
             {
                 let copyState = { ...state }
                 copyState.topDoctors = []
+                return {
+                    ...copyState,
+                }
+            }
+        case actionTypes.FETCH_ALL_DOCTOR_SECCESS:
+            {
+                let copyState = { ...state }
+                copyState.allDoctors = action.dataDoctors
+                return {
+                    ...copyState,
+                }
+            }
+        case actionTypes.FETCH_ALL_DOCTOR_FAILED:
+            {
+                let copyState = { ...state }
+                copyState.allDoctors = []
                 return {
                     ...copyState,
                 }

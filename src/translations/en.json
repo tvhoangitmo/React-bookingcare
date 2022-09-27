@@ -12,7 +12,7 @@
         "welcome": "Welcome, "
     },
     "homebanner": {
-        "title1": "MEDICAL BACKGROUND",
+        "title1": "MEDICAL PLATFORM",
         "title2": "COMPREHENSIVE HEALTH CARE",
         "child1": "Specialist examination",
         "child2": "Remote examination",
@@ -40,6 +40,10 @@
         "facility4": "Vietnam-Germany Hospital",
         "facility5": "Central Hospital of Traditional Medicine",
         "facility6": "Meditec Clinic"
+    },
+    "homedoctor": {
+        "outstandingdoctor": "Outstanding Doctor",
+        "search": "Search"
     },
     "menu": {
         "admin": {

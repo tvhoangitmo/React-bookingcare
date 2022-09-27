@@ -43,19 +43,7 @@
     },
     "homedoctor": {
         "outstandingdoctor": "Bác sĩ nổi bật",
-        "search": "Tìm kiếm",
-        "doctor1": "Khám Nam học, Bệnh viện Nam học và Hiếm muộn Hà Nội",
-        "specialtydoctor1": "Nam học",
-        "doctor2": "Tiến sĩ, Bác sĩ Đào Đình Thi",
-        "specialtydoctor2": "Tai Mũi Họng",
-        "doctor3": "Giáo sư, Tiến sĩ, Bác sĩ Trần Ngọc Ân",
-        "specialtydoctor3": "Cơ Xương Khớp",
-        "doctor4": "Bác sĩ Chuyên khoa II Trần Minh Khuyên",
-        "specialtydoctor4": "Tâm lý học",
-        "doctor5": "Phó Giáo sư, Tiến sĩ, Bác sĩ cao cấp Nguyễn Duy Hưng",
-        "specialtydoctor5": "Da liễu",
-        "doctor6": "Phó giáo sư, Tiến sĩ, Bác sĩ Nguyễn Thị Hoài An",
-        "specialtydoctor6": "Tai Mũi Họng - Nhi khoa"
+        "search": "Tìm kiếm"
     },
     "menu": {
         "admin": {
