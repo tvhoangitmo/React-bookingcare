@@ -110,7 +110,6 @@ class ManageDoctor extends Component {
                         />
 
                     </div>
-
                     <div className='content-right'>
                         <label>Thong tin gioi thieu</label>
                         <textarea className='form-control' rows='4' onChange={(event) => this.handleOnChangeDescription(event)}

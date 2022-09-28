@@ -130,7 +130,7 @@ export const fetchAllUserStart = () => {
 
             let res = await getAllUsers('ALL')
             let res1 = await getTopDoctorHomeService(2)
-            console.log('Check res get doctor: ', res1)
+            //console.log('Check res get doctor: ', res1)
             if (res && res.errCode === 0) {
                 // console.log('all users: ', res)
 
@@ -189,7 +189,7 @@ export const editUser = (data) => {
     return async (dispatch, getState) => {
         try {
             let res = await updateUserService(data)
-            console.log('data from actions: ', data)
+            //console.log('data from actions: ', data)
             if (res && res.errCode === 0) {
                 toast.success("Update a user seccessed!!!")
                 // console.log('get role fetch: ', res)
@@ -221,7 +221,7 @@ export const fetchTopDoctors = () => {
     return async (dispatch, getState) => {
         try {
             let res = await getTopDoctorHomeService('')
-            console.log('check fetch doctor: ', res)
+            //console.log('check fetch doctor: ', res)
             if (res && res.errCode === 0) {
                 dispatch({
                     type: actionTypes.FETCH_TOP_DOCTOR_SECCESS,
@@ -246,7 +246,7 @@ export const fetchAllDoctors = () => {
     return async (dispatch, getState) => {
         try {
             let res = await getAllDoctor()
-            console.log('check fetch doctor: ', res)
+            //console.log('check fetch doctor: ', res)
             if (res && res.errCode === 0) {
                 dispatch({
                     type: actionTypes.FETCH_ALL_DOCTOR_SECCESS,
@@ -271,7 +271,7 @@ export const saveDetailDoctor = (data) => {
     return async (dispatch, getState) => {
         try {
             let res = await saveDetailDoctorService(data)
-            console.log('check fetch doctor: ', res)
+            //console.log('check fetch doctor: ', res)
             if (res && res.errCode === 0) {
                 toast.success("Save Infor Detail Doctor Seccessed!!!")
                 dispatch({

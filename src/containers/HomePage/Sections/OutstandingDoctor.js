@@ -5,8 +5,11 @@ import { LANGUAGES } from '../../../utils';
 import { changeLanguageApp } from '../../../store/actions';
 import { FormattedMessage } from 'react-intl';
 import * as actions from '../../../store/actions'
+import { withRouter } from 'react-router';
+
 
 class OutstandingDoctor extends Component {
+
     constructor(props) {
         super(props)
         this.state = {
@@ -28,9 +31,14 @@ class OutstandingDoctor extends Component {
     componentDidMount() {
         this.props.loadTopDoctors()
     }
+
+    handleViewDetailDoctor = (doctor) => {
+        console.log('view detail doctor: ', doctor)
+        this.props.history.push(`/detail-doctor/${doctor.id}`)
+    }
     render() {
         // console.log('check top doctor redux: ', this.props.topDoctorsRedux)
-        console.log(this.props.language)
+        //console.log(this.props.language)
         let language = this.props.language
         let arrDoctor = this.state.arrDoctor
         //arrDoctor = arrDoctor.concat(arrDoctor).concat(arrDoctor).concat(arrDoctor).concat(arrDoctor)
@@ -62,10 +70,10 @@ class OutstandingDoctor extends Component {
 
                                         let nameRu = `${item.positionData.valueRu}, ${item.lastName} ${item.firstName}`
                                         return (
-                                            <div className='section-customize' key={index}>
+                                            <div className='section-customize' key={index} onClick={() => this.handleViewDetailDoctor(item)}>
                                                 <div className='customize-border'>
                                                     <div className='outer-bg'>
-                                                        <div className='section-outstanding-doctor  doctor-img1 '
+                                                        <div className='section-outstanding-doctor'
                                                             style={{ backgroundImage: `url(${imageBase64})` }}
                                                         ></div>
                                                     </div>
@@ -103,4 +111,4 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(OutstandingDoctor);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(OutstandingDoctor));

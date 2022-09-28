@@ -16,7 +16,7 @@
         //border: 1px solid black;
 
         .section-customize {
-            cursor: pointer;
+            // cursor: pointer;
             //image specialty
             .specialty-img1 {
                 background-image: url('../../assets/specialty/co-xuong-khop.jpg');
@@ -64,6 +64,7 @@
                 margin: auto;
                 padding: 0 5px;
                 .outer-bg {
+                    cursor: pointer;
                     display: flex;
                     justify-self: center;
                     .section-outstanding-doctor {
@@ -76,6 +77,9 @@
                         background-size: cover;
                         background-color: #eee;
                     }
+                }
+                .position {
+                    cursor: pointer;
                 }
             }
            
