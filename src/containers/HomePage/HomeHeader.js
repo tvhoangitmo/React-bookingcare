@@ -12,13 +12,19 @@ import ggplay from '../../assets/icon/ggplay.png'
 import appstore from '../../assets/icon/appstore.png'
 import { LANGUAGES } from '../../utils'
 import { changeLanguageApp } from '../../store/actions';
-
 import { FormattedMessage } from 'react-intl';
+import { withRouter } from 'react-router';
 class HomeHeader extends Component {
 
     changeLanguage = (language) => {
         this.props.changeLanguageAppRedux(language)
     }
+    returnToHome = () => {
+        if (this.props.history) {
+            this.props.history.push(`/home`)
+        }
+    }
+
     render() {
         //console.log('check props', this.props)
         let language = this.props.language
@@ -29,7 +35,7 @@ class HomeHeader extends Component {
                     <div className='home-header-content'>
                         <div className='left-content'>
                             <i className="fas fa-bars"></i>
-                            <img className='header-logo' alt="BigCo Inc. logo" />
+                            <img className='header-logo' alt="BigCo Inc. logo" onClick={() => this.returnToHome()} />
                         </div>
 
                         <div className='center-content'>
@@ -127,4 +133,4 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(HomeHeader);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(HomeHeader));

@@ -58,6 +58,9 @@
             "manage-specialty": "Manage specialties",
             "handbook": "Handbook",
             "manage-handbook": "Manage handbook"
+        },
+        "doctor": {
+            "manage-schedule": "Manage medical examination plan"
         }
     },
     "manage-user": {
@@ -75,5 +78,11 @@
         "save": "Save user",
         "edit": "Save changes",
         "upload-image": "Upload image"
+    },
+    "manage-schedule": {
+        "title": "Manage doctor's appointment schedule",
+        "choose-doctor": "Choose a doctor",
+        "choose-date": "Choose a medical examination date",
+        "save": "Save selection"
     }
 }

@@ -1,9 +1,8 @@
 .doctor-detail-container {
-    margin: 0 150px;
     //height: 500px;
     //border: 1px solid red;
     .intro-doctor {
-        
+        margin: 0 150px;
         display: flex;
         gap: 15px;
         //height: 130px;
@@ -18,7 +17,7 @@
             background-size: cover;
             background-color: #eee;
             //margin: auto;
-            padding-right: 15px;
+            // padding-right: 15px;
             
         }
         .content-right{
@@ -42,8 +41,9 @@
         border-bottom: 1px solid #ccc;
     }
     .detail-infor-doctor{
+        padding: 15px 150px ;
         border-bottom: 1px solid #ccc;
-        padding: 15px 0;
+        background-color: #f9f9f9;
     }
     .comment-doctor {
         height: 100px;
