@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './HomeHeader.scss'
-import logo from '../../assets/logo.svg'
+import logo from '../../assets/1538462_4870-ai.svg'
 import iconchuyenkhoa from '../../assets/iconbanner/chuyenkhoa.png'
 import iconkhamtuxa from '../../assets/iconbanner/khamtuxa.png'
 import iconkhamtongquat from '../../assets/iconbanner/khamtongquat.png'
@@ -35,7 +35,7 @@ class HomeHeader extends Component {
                     <div className='home-header-content'>
                         <div className='left-content'>
                             <i className="fas fa-bars"></i>
-                            <img className='header-logo' alt="BigCo Inc. logo" onClick={() => this.returnToHome()} />
+                            <img className='header-logo' src={logo} alt="BigCo Inc. logo" onClick={() => this.returnToHome()} />
                         </div>
 
                         <div className='center-content'>

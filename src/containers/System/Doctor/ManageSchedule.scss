@@ -21,9 +21,15 @@
             .btn-schedule {
                 border: 1px solid green;
                 padding: 5px 15px;
-                background: #fff8ae;
+                background: #ddd;
+                
+                &.active {
+                    background:#fff8ae;
+                }
             }
         }
+        
+
         .btn-save-schedule {
             margin-top: 20px;
         }

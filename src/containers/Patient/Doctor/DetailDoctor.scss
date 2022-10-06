@@ -9,6 +9,7 @@
         .content-left{
             //width: 20%;
             //border: 1px solid green;
+            
             border-radius: 50%;
             height: 120px    ;
             width: 120px;
@@ -37,8 +38,18 @@
         }
     }
     .schedule-doctor {
-        height: 200px;
+        margin: 0 150px;
+        //height: 200px;
+        display: flex;
         border-bottom: 1px solid #ccc;
+        
+        min-height: 260px;
+        .content-left {
+            border-right: 1px solid #eee;
+            width: 50%;
+            margin-bottom: 10px;
+            //border: 1px solid red;
+        }
     }
     .detail-infor-doctor{
         padding: 15px 150px ;

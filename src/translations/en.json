@@ -84,5 +84,13 @@
         "choose-doctor": "Choose a doctor",
         "choose-date": "Choose a medical examination date",
         "save": "Save selection"
+    },
+    "patient": {
+        "detail-doctor": {
+            "schedule": "Schedule",
+            "no-schedule": "There are no appointments scheduled for today!",
+            "choose": "Choose",
+            "free-book": "and book (booking free 0 VND)"
+        }
     }
 }

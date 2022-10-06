@@ -212,7 +212,7 @@ class UserRedux extends Component {
         let positions = this.state.positionArr
         let roles = this.state.roleArr
         let language = this.props.language
-        console.log(language)
+        //console.log(language)
         let isLoadingGender = this.props.isLoadingGender
         let isOpen = this.state.isOpen
         let previewImgURL = this.state.previewImgURL
