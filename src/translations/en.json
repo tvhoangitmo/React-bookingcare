@@ -92,5 +92,19 @@
             "choose": "Choose",
             "free-book": "and book (booking free 0 VND)"
         }
+    },
+    "admin": {
+        "manage-doctor": {
+            "manage-doctor": "Add doctor's information",
+            "choose-doctor": "Choose a doctor",
+            "intro-doctor": "Introductory information",
+            "price": "Select price",
+            "payment-method": "Select payment method",
+            "province": "Choose a province",
+            "name-clinic": "Name of hospital/clinic",
+            "address-clinic": "Address of hospital/clinic",
+            "note": "Note",
+            "save": "Save information"
+        }
     }
 }

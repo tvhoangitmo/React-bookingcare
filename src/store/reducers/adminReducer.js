@@ -8,7 +8,8 @@ const initialState = {
     users: [],
     topDoctors: [],
     allDoctors: [],
-    allScheduleTime: []
+    allScheduleTime: [],
+    requiredData: []
 }
 
 const adminReducer = (state = initialState, action) => {
@@ -136,6 +137,22 @@ const adminReducer = (state = initialState, action) => {
             {
                 let copyState = { ...state }
                 copyState.allScheduleTime = []
+                return {
+                    ...copyState,
+                }
+            }
+        case actionTypes.FETCH_ALL_REQUIRED_DATA_SECCESS:
+            {
+                let copyState = { ...state }
+                copyState.requiredData = action.data
+                return {
+                    ...copyState,
+                }
+            }
+        case actionTypes.FETCH_ALL_REQUIRED_DATA_FAILED:
+            {
+                let copyState = { ...state }
+                copyState.requiredData = []
                 return {
                     ...copyState,
                 }

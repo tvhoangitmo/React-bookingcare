@@ -318,3 +318,36 @@ export const fetchAllScheduleTime = () => {
         }
     }
 }
+
+export const getAllRequiredData = () => {
+    return async (dispatch, getState) => {
+        try {
+            let resPrice = await getAllCodeService('PRICE')
+            let resPayment = await getAllCodeService('PAYMENT')
+            let resProvince = await getAllCodeService('PROVINCE')
+            if (resPrice && resPrice.errCode === 0 && resPayment && resPayment.errCode === 0 && resProvince && resProvince.errCode === 0) {
+                let data = {
+                    resPrice: resPrice.data,
+                    resPayment: resPayment.data,
+                    resProvince: resProvince.data
+                }
+                dispatch(getAllRequiredDataSeccess(data))
+            }
+            else {
+                dispatch(getAllRequiredDataFailed())
+            }
+        } catch (e) {
+            // console.log('fetchGenderStart error: ', e)
+            dispatch(getAllRequiredDataFailed())
+        }
+    }
+}
+
+export const getAllRequiredDataSeccess = (requiredData) => ({
+    type: actionTypes.FETCH_ALL_REQUIRED_DATA_SECCESS,
+    data: requiredData
+})
+
+export const getAllRequiredDataFailed = () => ({
+    type: actionTypes.FETCH_ALL_REQUIRED_DATA_FAILED
+})

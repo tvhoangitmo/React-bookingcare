@@ -8,6 +8,7 @@ import { getDetailInforDoctor } from '../../../services/userService';
 import { LANGUAGES } from '../../../utils';
 import HomeFooter from '../../HomePage/Sections/HomeFooter';
 import DoctorSchedule from './DoctorSchedule';
+import DoctorExtraInfor from './DoctorExtraInfor';
 
 class DetailDoctor extends Component {
     constructor(props) {
@@ -83,7 +84,9 @@ class DetailDoctor extends Component {
                             />
                         </div>
                         <div className='content-right'>
-
+                            <DoctorExtraInfor
+                                doctorId={this.state.currentDoctorId}
+                            />
                         </div>
                     </div>
                     <div className='detail-infor-doctor'>
