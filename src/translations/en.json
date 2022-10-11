@@ -90,7 +90,12 @@
             "schedule": "Schedule",
             "no-schedule": "There are no appointments scheduled for today!",
             "choose": "Choose",
-            "free-book": "and book (booking free 0 VND)"
+            "free-book": "and book (booking free 0 VND)",
+            "address-clinic": "Address of examination",
+            "price": "Price of examination: ",
+            "show-more": "View details",
+            "hidden-infor": "Hide information",
+            "payment": "The clinic can pay in the following forms: "
         }
     },
     "admin": {

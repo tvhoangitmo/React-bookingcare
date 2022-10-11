@@ -88,6 +88,8 @@ class ManageDoctor extends Component {
 
     handleSaveContentMarkdown = () => {
         let { hasData } = this.state
+        console.log('check state after click save ', this.state)
+
         this.props.savedetailDoctor({
             contentHTML: this.state.contentHTML,
             contentMarkdown: this.state.contentMarkdown,
@@ -128,19 +130,20 @@ class ManageDoctor extends Component {
                 selectedPrice = listPrice.find(element => element.value === price)
                 selectedPayment = listPayment.find(element => element.value === payment)
                 selectedProvince = listProvince.find(element => element.value === province)
+                this.setState({
+                    hasData: true,
+                    contentHTML: markdown.contentHTML,
+                    contentMarkdown: markdown.contentMarkdown,
+                    description: markdown.description,
+                    selectedPrice: selectedPrice,
+                    selectedPayment: selectedPayment,
+                    selectedProvince: selectedProvince,
+                    nameClinic: nameClinic,
+                    addressClinic: addressClinic,
+                    note: note
+                })
             }
-            this.setState({
-                hasData: true,
-                contentHTML: markdown.contentHTML,
-                contentMarkdown: markdown.contentMarkdown,
-                description: markdown.description,
-                selectedPrice: selectedPrice,
-                selectedPayment: selectedPayment,
-                selectedProvince: selectedProvince,
-                nameClinic: nameClinic,
-                addressClinic: addressClinic,
-                note: note
-            })
+
         } else {
             this.setState({
                 hasData: false,

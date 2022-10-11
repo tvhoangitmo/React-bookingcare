@@ -1,4 +1,77 @@
 .extra-infor-container {
     display: flex;
     flex-direction: column;
+    padding-left: 10px;
+    .title-address {
+        text-transform: uppercase;
+        text-align: left ;
+        font-size: 15px;
+        font-weight: bold;
+        color: #666;
+    }
+
+    .name-clinic {
+        font-size: 13px;
+        font-weight: bold;
+        padding: 3px 0;
+    }
+
+    .address-clinic {
+        font-size: 13px;
+        padding: 3px 0;
+    }
+
+    .price {
+        border-top: 1px solid #eee;
+        padding-top: 10px;
+        margin-top: 10px;
+        
+
+        .summary-infor-price {
+            display: flex;
+            flex-direction: row;
+            gap: 5px;
+            padding-bottom: 10px;
+
+            .see-more {
+                cursor: pointer;
+                color: #51c3d6;
+            }
+        }
+
+        .price-more-infor {
+            width: 450px;
+            border-top: 1px solid #eee;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            display: flex;
+            flex-direction: column;
+
+            .price-infor-show {
+                padding: 5px;
+                display: flex;
+                flex-direction: initial;
+                border:  1px solid #ddd;
+                background: #f8f8f8;
+                .left {
+                    width: 80%;
+                }
+            }
+            .payment {
+                border: 1px solid #ddd;
+                padding: 5px;
+                background: #eee;
+            }
+
+            .hidden-infor {
+                padding-top: 5px;
+                cursor: pointer;
+                color: #51c3d6;
+            }
+        }
+    }
+
+    .note {
+        border-top: 1px solid #eee;
+    }
 }

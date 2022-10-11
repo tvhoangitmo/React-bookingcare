@@ -90,7 +90,12 @@
             "schedule": "Lịch khám",
             "no-schedule": "Không có lịch hẹn nào trong ngày hôm nay!",
             "choose": "Chọn",
-            "free-book": "và đặt (phí đặt lịch 0 đồng)"
+            "free-book": "và đặt (phí đặt lịch 0 đồng)",
+            "address-clinic": "Địa chỉ khám",
+            "price": "Giá khám: ",
+            "show-more": "Xem chi tiết",
+            "hidden-infor": "Ẩn thông tin",
+            "payment": "Bệnh viện có thanh toán bằng các hình thức: "
         }
     },
     "admin": {

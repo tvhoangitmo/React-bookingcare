@@ -97,7 +97,7 @@ class DoctorSchedule extends Component {
         let allDays = this.state.allDays
         let allTime = this.state.allTime
         let language = this.props.language
-        console.log(allTime)
+        console.log(this.state)
 
         return (
             <div className='doctor-schedule-container'>
