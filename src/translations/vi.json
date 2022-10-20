@@ -96,6 +96,19 @@
             "show-more": "Xem chi tiết",
             "hidden-infor": "Ẩn thông tin",
             "payment": "Bệnh viện có thanh toán bằng các hình thức: "
+        },
+        "modal-booking": {
+            "title": "Thông tin đặt lịch khám bệnh",
+            "name": "Họ và tên",
+            "phone": "Số điện thoại",
+            "email": "Địa chỉ email",
+            "address": "Địa chỉ",
+            "reason": "Lý do khám",
+            "birthday": "Ngày sinh",
+            "gender": "Giới tính",
+            "price": "Giá khám: ",
+            "save": "Lưu thông tin",
+            "cancel": "Hủy"
         }
     },
     "admin": {

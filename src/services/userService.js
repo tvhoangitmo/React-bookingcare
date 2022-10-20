@@ -41,8 +41,8 @@ const saveDetailDoctorService = (data) => {
     return axios.post(`/api/save-infor-doctor`, data)
 }
 
-const getDetailInforDoctor = (id) => {
-    return axios.get(`/api/get-detail-doctor?id=${id}`)
+const getDetailInforDoctor = (doctorId) => {
+    return axios.get(`/api/get-detail-doctor?doctorId=${doctorId}`)
 }
 
 const saveBulkScheduleDoctor = (data) => {
@@ -58,6 +58,14 @@ const getExtraInforDoctor = (id) => {
     return axios.get(`/api/get-extra-infor-doctor?doctorId=${id}`)
 }
 
+const getInforDoctor = (id) => {
+    return axios.get(`/api/get-infor-doctor-for-modal?doctorId=${id}`)
+}
+
+const saveInforPatient = (data) => {
+    return axios.post(`/api/patient-booking-appointment`, data)
+}
+
 export {
     handleLoginApi,
     getAllUsers,
@@ -71,5 +79,7 @@ export {
     getDetailInforDoctor,
     saveBulkScheduleDoctor,
     getScheduleDoctorByDate,
-    getExtraInforDoctor
+    getExtraInforDoctor,
+    getInforDoctor,
+    saveInforPatient
 }

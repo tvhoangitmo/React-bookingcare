@@ -1,0 +1,46 @@
+.profile-doctor {
+    .intro-doctor {
+        display: flex;
+        //gap: 15px;
+        .content-left{
+            //width: 20%;
+            //border: 1px solid green;
+            
+            border-radius: 50%;
+            height: 100px;
+            width: 100px;
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-color: #eee;
+            //margin: auto;
+            padding-right: 15px;
+            
+        }
+        .content-right{
+            width: 80%;
+            display: flex;
+            flex-direction: column;
+            padding-left: 10px;
+    
+            .up {
+                font-size: 20px;
+                font-weight: bold;
+            }
+            .down{
+                padding-top: 10px;
+            }
+        }
+    }
+
+    .province {
+        margin-top: 5px;
+        color:#51c3d6; ;
+    }
+
+    .price {
+        margin: 5px 0;
+        color: #51c3d6;;
+    }
+}
+

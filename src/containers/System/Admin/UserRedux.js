@@ -177,7 +177,6 @@ class UserRedux extends Component {
     onChangeInput = (event, id) => {
         let copyState = { ...this.state }
         copyState[id] = event.target.value
-        // console.log('change input: ', this.state)
         this.setState({
             ...copyState
         })

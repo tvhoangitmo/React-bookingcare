@@ -96,6 +96,19 @@
             "show-more": "View details",
             "hidden-infor": "Hide information",
             "payment": "The clinic can pay in the following forms: "
+        },
+        "modal-booking": {
+            "title": "Information to book an appointment",
+            "name": "First and last name",
+            "phone": "Phone number",
+            "email": "Email address",
+            "address": "Address",
+            "reason": "Reason for medical examination",
+            "birthday": "Date of birth",
+            "gender": "Gender",
+            "price": "Price of examination: ",
+            "save": "Save information",
+            "cancel": "Cancel"
         }
     },
     "admin": {
