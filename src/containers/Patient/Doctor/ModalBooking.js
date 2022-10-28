@@ -22,10 +22,10 @@ class ModalBooking extends Component {
             email: '',
             address: '',
             reason: '',
-            birthday: '',
             gender: '',
+            timeType: '',
 
-            genderArr: []
+            genderArr: [],
         }
     }
     async componentDidMount() {
@@ -34,9 +34,11 @@ class ModalBooking extends Component {
         this.props.getGenderStart()
     }
     componentDidUpdate(prevProps, prevState, snapshot) {
+        let genderArr = this.props.genderRedux
         if (prevProps.genderRedux != this.props.genderRedux) {
             this.setState({
-                genderArr: this.props.genderRedux
+                genderArr: this.props.genderRedux,
+                // gender: genderArr && genderArr.length > 0 ? genderArr[0].keyMap : ''
             })
         }
     }
@@ -67,12 +69,18 @@ class ModalBooking extends Component {
             email: this.state.email,
             address: this.state.address,
             reason: this.state.reason,
-            birthday: this.state.birthday,
             gender: this.state.gender,
             doctorId: this.props.doctorId,
             date: date,
-            timeType: this.props.dataTime.timeType
+            dataTime: this.props.dataTime,
+            timeType: this.props.dataTime.timeType,
+
+            firstName: this.props.firstName,
+            lastName: this.props.lastName,
+            language: this.props.language
+
         })
+        console.log(res)
 
         if (res && res.errCode === 0) {
             toast.success("Save patient's infor success")
@@ -86,7 +94,6 @@ class ModalBooking extends Component {
 
     render() {
         console.log('check state ', this.state)
-        console.log('check props ', this.props)
         let { genderArr } = this.state
         let { language } = this.props
         let doctorId = ''
@@ -164,7 +171,7 @@ class ModalBooking extends Component {
                                 <select className="form-control"
                                     onChange={(event) => { this.handleChangeInputModal(event, 'gender') }}
                                     value={this.state.gender}
-                                    placeholder={'Chọn giới tính'}
+                                    placeholder='Chon gioi tinh'
                                 >
                                     {genderArr && genderArr.length > 0 &&
                                         genderArr.map((item, index) => {

@@ -114,6 +114,8 @@ class DoctorSchedule extends Component {
         let allTime = this.state.allTime
         let language = this.props.language
         //console.log('check props', this.props)
+        // console.log('state :', this.state)
+        // console.log('props :', this.props)
 
         return (
             <React.Fragment>
@@ -174,6 +176,8 @@ class DoctorSchedule extends Component {
                     isCloseModal={this.handleCloseModalBooking}
                     dataTime={this.state.dataTime}
                     doctorId={this.props.doctorId}
+                    firstName={this.props.firstName}
+                    lastName={this.props.lastName}
                 />
             </React.Fragment>
         );

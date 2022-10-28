@@ -109,6 +109,12 @@
             "price": "Giá khám: ",
             "save": "Lưu thông tin",
             "cancel": "Hủy"
+        },
+        "verify-booking": {
+            "loading": "Đang tải dữ liệu.....",
+            "verify-success": "Xác thực thông tin thành công",
+            "confirmed-or-exist": "Lịch hẹn đã đuợc xác nhận hoặc không tồn tại",
+            "back": "Trở về trang chủ"
         }
     },
     "admin": {

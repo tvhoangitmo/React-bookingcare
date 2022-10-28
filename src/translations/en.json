@@ -109,6 +109,12 @@
             "price": "Price of examination: ",
             "save": "Save information",
             "cancel": "Cancel"
+        },
+        "verify-booking": {
+            "loading": "Loading data.....",
+            "verify-success": "Verification successful",
+            "confirmed-or-exist": "The appointment is confirmed or does not exist",
+            "back": "Back to home page"
         }
     },
     "admin": {

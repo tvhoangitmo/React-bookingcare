@@ -27,7 +27,7 @@ class DoctorSchedule extends Component {
         if (this.props.doctorId !== prevProps.doctorId) {
 
             let infor = await getExtraInforDoctor(this.props.doctorId)
-            console.log('check infor ', infor)
+            //console.log('check infor ', infor)
             this.setState({
                 extraInfor: infor.data ? infor.data : []
             })
@@ -45,7 +45,7 @@ class DoctorSchedule extends Component {
         //console.log(this.state)
         let isShow = this.state.isShow
         let extraInfor = this.state.extraInfor
-        console.log(extraInfor)
+        //console.log(extraInfor)
         return (
             <div className='extra-infor-container'>
                 <div className='title-address'>

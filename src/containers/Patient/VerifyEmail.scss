@@ -1,0 +1,19 @@
+.verify-content {
+    padding: 50px;
+    text-align: center;
+    .notification {
+        font-size: 20px;
+        font-weight: 600;
+        color: red;
+        margin-bottom: 20px;
+        text-transform: uppercase;
+    }
+    .back-to-homepage {
+        font-size: 15px;
+        font-weight: 600;
+    }
+    .back {
+        font-size: 30px;
+        cursor: pointer;
+    }
+}

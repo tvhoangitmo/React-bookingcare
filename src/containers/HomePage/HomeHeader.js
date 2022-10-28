@@ -16,6 +16,12 @@ import { FormattedMessage } from 'react-intl';
 import { withRouter } from 'react-router';
 class HomeHeader extends Component {
 
+    // constructor(props) {
+    //     super(props)
+    //     this.state = {
+    //         inHomePage : true
+    //     }
+    // }
     changeLanguage = (language) => {
         this.props.changeLanguageAppRedux(language)
     }
@@ -34,8 +40,16 @@ class HomeHeader extends Component {
                 <div className='home-header-container'>
                     <div className='home-header-content'>
                         <div className='left-content'>
-                            <i className="fas fa-bars"></i>
-                            <img className='header-logo' src={logo} alt="BigCo Inc. logo" onClick={() => this.returnToHome()} />
+
+                            {this.props.inHomePage === true ?
+                                <>
+                                    <i className="fas fa-bars"></i>
+                                    <img className='header-logo' src={logo} alt="BigCo Inc. logo" onClick={() => this.returnToHome()} />
+                                </>
+                                :
+                                <i className="fas fa-backward" onClick={() => this.returnToHome()}></i>
+                            }
+
                         </div>
 
                         <div className='center-content'>

@@ -66,7 +66,6 @@ class Login extends Component {
         this.setState({
             isShowPassword: !this.state.isShowPassword
         })
-
     }
 
     handleKeyDown = (event) => {

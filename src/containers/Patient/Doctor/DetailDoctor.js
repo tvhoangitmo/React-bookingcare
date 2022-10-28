@@ -41,6 +41,8 @@ class DetailDoctor extends Component {
     }
     render() {
         //console.log('check state detail doctor: ', this.state.detailDoctor)
+        //console.log('state :', this.state)
+        //console.log('props :', this.props)
         let { detailDoctor } = this.state
         let { language } = this.props
         let nameVi = '', nameEn = '', nameRu = ''
@@ -57,9 +59,11 @@ class DetailDoctor extends Component {
         }
 
         return (
-
             <React.Fragment>
-                <HomeHeader isShowBanner={false} />
+                <HomeHeader
+                    isShowBanner={false}
+                    inHomePage={false}
+                />
                 <div className='doctor-detail-container'>
                     <div className='intro-doctor'>
                         <div className='content-left'
@@ -81,6 +85,8 @@ class DetailDoctor extends Component {
                         <div className='content-left'>
                             <DoctorSchedule
                                 doctorId={this.state.currentDoctorId}
+                                firstName={this.state.detailDoctor.firstName}
+                                lastName={this.state.detailDoctor.lastName}
                             />
                         </div>
                         <div className='content-right'>
