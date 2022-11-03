@@ -128,7 +128,9 @@
             "name-clinic": "Tên bệnh viện/phòng khám",
             "address-clinic": "Địa chỉ bệnh viện/phòng khám",
             "note": "Note",
-            "save": "Lưu thông tin"
+            "save": "Lưu thông tin",
+            "specialty": "Chọn chuyên khoa",
+            "clinic": "Chọn phòng khám"
         }
     }
 }

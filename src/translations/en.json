@@ -119,7 +119,7 @@
     },
     "admin": {
         "manage-doctor": {
-            "manage-doctor": "Add doctor's information",
+            "title": "Add doctor's information",
             "choose-doctor": "Choose a doctor",
             "intro-doctor": "Introductory information",
             "price": "Select price",
@@ -128,7 +128,9 @@
             "name-clinic": "Name of hospital/clinic",
             "address-clinic": "Address of hospital/clinic",
             "note": "Note",
-            "save": "Save information"
+            "save": "Save information",
+            "specialty": "Select a specialty",
+            "clinic": "Select clinic"
         }
     }
 }

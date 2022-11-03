@@ -93,7 +93,7 @@ class ModalBooking extends Component {
     }
 
     render() {
-        console.log('check state ', this.state)
+        //console.log('check state ', this.state)
         let { genderArr } = this.state
         let { language } = this.props
         let doctorId = ''
@@ -119,6 +119,7 @@ class ModalBooking extends Component {
                             <ProfileDoctor
                                 doctorId={doctorId}
                                 dataTime={this.props.dataTime}
+                                isShowProfileDoctor={false}
                             />
                         </div>
                         <div className='row'>

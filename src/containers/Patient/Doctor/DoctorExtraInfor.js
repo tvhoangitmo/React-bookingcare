@@ -18,8 +18,12 @@ class DoctorSchedule extends Component {
         }
     }
 
-    componentDidMount() {
-
+    async componentDidMount() {
+        let infor = await getExtraInforDoctor(this.props.doctorId)
+        //console.log('check infor ', infor)
+        this.setState({
+            extraInfor: infor.data ? infor.data : []
+        })
     }
 
 

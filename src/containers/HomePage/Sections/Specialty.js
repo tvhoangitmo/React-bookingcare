@@ -5,16 +5,41 @@ import Slider from 'react-slick';
 import { LANGUAGES } from '../../../utils';
 import { changeLanguageApp } from '../../../store/actions';
 import { FormattedMessage } from 'react-intl';
+import { getAllSpecialty } from '../../../services/userService';
+import { withRouter } from 'react-router';
 
 class Specialty extends Component {
+
+    constructor(props) {
+        super(props)
+        this.state = {
+            arrSpecialty: []
+        }
+    }
+
+    async componentDidMount() {
+        let res = await getAllSpecialty()
+        if (res && res.data) {
+            this.setState({
+                arrSpecialty: res.data
+            })
+        }
+    }
 
     changeLanguage = (language) => {
         this.props.changeLanguageAppRedux(language)
     }
 
-    render() {
-        //let language = this.props.language
+    handleViewDetailSpecialty = (specialty) => {
+        console.log('view detail doctor: ', specialty)
+        if (this.props.history) {
+            this.props.history.push(`/detail-specialty/${specialty.id}`)
+        }
+    }
 
+    render() {
+        //console.log('check arr specialty : ', this.state.arrSpecialty)
+        let { arrSpecialty } = this.state
         return (
             <React.Fragment>
                 <div className=' section-share sectionspecialty'>
@@ -25,30 +50,19 @@ class Specialty extends Component {
                         </div>
                         <div className='section-body'>
                             <Slider {...this.props.settings}>
-                                <div className='section-customize section-specialty'>
-                                    <div className='bg-image specialty-img1'></div>
-                                    <div className='name-image'><FormattedMessage id='homespecialty.specialty1' /></div>
-                                </div>
-                                <div className='section-customize section-specialty'>
-                                    <div className='bg-image specialty-img2'></div>
-                                    <div className='name-image'><FormattedMessage id='homespecialty.specialty2' /></div>
-                                </div>
-                                <div className='section-customize section-specialty'>
-                                    <div className='bg-image specialty-img3'></div>
-                                    <div className='name-image'><FormattedMessage id='homespecialty.specialty3' /></div>
-                                </div>
-                                <div className='section-customize section-specialty'>
-                                    <div className='bg-image specialty-img4'></div>
-                                    <div className='name-image'><FormattedMessage id='homespecialty.specialty4' /></div>
-                                </div>
-                                <div className='section-customize section-specialty'>
-                                    <div className='bg-image specialty-img5'></div>
-                                    <div className='name-image'><FormattedMessage id='homespecialty.specialty5' /></div>
-                                </div>
-                                <div className='section-customize section-specialty'>
-                                    <div className='bg-image specialty-img6'></div>
-                                    <div className='name-image'><FormattedMessage id='homespecialty.specialty6' /></div>
-                                </div>
+                                {arrSpecialty && arrSpecialty.length > 0 &&
+                                    arrSpecialty.map((item, index) => {
+                                        return (
+                                            <div className='section-customize section-specialty' key={index} onClick={() => this.handleViewDetailSpecialty(item)}>
+                                                <div className='bg-image'
+                                                    style={{ backgroundImage: `url(${item.image})` }}
+                                                >
+                                                </div>
+                                                <span className='name-image'>{item.name}</span>
+                                            </div>
+                                        )
+                                    })
+                                }
                             </Slider>
                         </div>
                     </div>
@@ -72,4 +86,4 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Specialty);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Specialty));

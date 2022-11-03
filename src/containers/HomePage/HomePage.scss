@@ -18,24 +18,6 @@
         .section-customize {
             // cursor: pointer;
             //image specialty
-            .specialty-img1 {
-                background-image: url('../../assets/specialty/co-xuong-khop.jpg');
-            }
-            .specialty-img2 {
-                background-image: url('../../assets/specialty/than-kinh.jpg');
-            }
-            .specialty-img3 {
-                background-image: url('../../assets/specialty/tieu-hoa.jpg');
-            }
-            .specialty-img4 {
-                background-image: url('../../assets/specialty/tim-mach.jpg');
-            }
-            .specialty-img5 {
-                background-image: url('../../assets/specialty/tai-mui-hong.jpg');
-            }
-            .specialty-img6 {
-                background-image: url('../../assets/specialty/y-hoc-co-truyen.jpg');
-            }
 
             //image facility
             .facility-img1 {
@@ -91,12 +73,14 @@
                 background-repeat: no-repeat;
                 background-size: cover;
                 background-color: #eee;
+                cursor: pointer;
             }
             .section-handbook {
                 background-image: url('../../assets/handbook/noi-soi-tieu-hoa.jpg');
             }
             .name-image {
                 padding: 0 30px;
+                cursor: pointer;
             }
         }
     }

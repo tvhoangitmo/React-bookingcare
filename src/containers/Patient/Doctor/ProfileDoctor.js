@@ -78,7 +78,7 @@ class ProfileDoctor extends Component {
         //console.log('check props from profile doctor', this.props)
 
         let { profileDoctor } = this.state
-        let { language, dataTime } = this.props
+        let { language, dataTime, isShowProfileDoctor } = this.props
         //let language = this.props.language
         let nameVi = '', nameEn = '', nameRu = ''
         let provinceVi = '', provinceEn = '', provinceRu = ''
@@ -109,10 +109,10 @@ class ProfileDoctor extends Component {
                             {language === LANGUAGES.VI ? nameVi : (language === LANGUAGES.EN ? nameEn : nameRu)}
                         </div>
                         <div className='down'>
-                            {/* {profileDoctor && profileDoctor.MarkDown && profileDoctor.MarkDown.description
+                            {isShowProfileDoctor && profileDoctor && profileDoctor.MarkDown && profileDoctor.MarkDown.description
                                 && <span>
                                     {profileDoctor.MarkDown.description}
-                                </span>} */}
+                                </span>}
                             {this.renderTimeBooking(dataTime)}
                         </div>
                     </div>
