@@ -14,7 +14,6 @@ class HomeFooter extends Component {
     }
 
     render() {
-
         return (
             <React.Fragment>
                 <div className='home-footer'>

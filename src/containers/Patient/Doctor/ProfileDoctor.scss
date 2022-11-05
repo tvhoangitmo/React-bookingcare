@@ -30,17 +30,22 @@
             .down{
                 padding-top: 10px;
             }
+            .province {
+                margin-top: 5px;
+                color:#51c3d6;
+            }
+        
+            .price {
+                margin: 5px 0px;
+                color: #51c3d6;
+            }
         }
     }
 
-    .province {
-        margin-top: 5px;
-        color:#51c3d6; ;
-    }
 
-    .price {
-        margin: 5px 0;
-        color: #51c3d6;;
+    .more {
+        cursor: pointer;
+        color: #45c3d2;
     }
 }
 

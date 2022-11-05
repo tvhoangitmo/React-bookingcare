@@ -23,23 +23,13 @@
     },
     "homespecialty": {
         "specialtypopular": "Chuyên khoa phổ biến",
-        "more": "Xem thêm",
-        "specialty1": "Cơ xương khớp",
-        "specialty2": "Thần kinh",
-        "specialty3": "Tiêu hóa",
-        "specialty4": "Tim mạch",
-        "specialty5": "Tai Mũi Họng",
-        "specialty6": "Y học Cổ truyền"
+        "more": "Xem thêm"
     },
     "homefacility": {
         "outstanding": "Cơ sở y tế nổi bật",
         "search": "Tìm kiếm",
-        "facility1": "Bệnh viện Chợ Rẫy",
-        "facility2": "Bệnh viện Đại học Y dược I",
-        "facility3": "Bệnh viện K",
-        "facility4": "Bệnh viện Việt Đức",
-        "facility5": "Bệnh viện Y học Cổ truyền Trung Ương",
-        "facility6": "Phòng khám Meditec"
+        "more-description": "Đọc thêm",
+        "hide": "Ẩn bớt"
     },
     "homedoctor": {
         "outstandingdoctor": "Bác sĩ nổi bật",
@@ -108,7 +98,8 @@
             "gender": "Giới tính",
             "price": "Giá khám: ",
             "save": "Lưu thông tin",
-            "cancel": "Hủy"
+            "cancel": "Hủy",
+            "more": "Xem thêm"
         },
         "verify-booking": {
             "loading": "Đang tải dữ liệu.....",

@@ -23,23 +23,13 @@
     },
     "homespecialty": {
         "specialtypopular": "Popular specialties",
-        "more": "More",
-        "specialty1": "Muscles Bones Joints",
-        "specialty2": "Neurology",
-        "specialty3": "Gastroenterology",
-        "specialty4": "Cardiology",
-        "specialty5": "Ear Nose Throat",
-        "specialty6": "Traditional Medicine"
+        "more": "More"
     },
     "homefacility": {
         "outstanding": "Outstanding medical facility",
         "search": "Search",
-        "facility1": "Cho Ray Hospital",
-        "facility2": "University Hospital of Medicine and Pharmacy I",
-        "facility3": "K Hospital",
-        "facility4": "Vietnam-Germany Hospital",
-        "facility5": "Central Hospital of Traditional Medicine",
-        "facility6": "Meditec Clinic"
+        "more-description": "Read more",
+        "hide": "Hide"
     },
     "homedoctor": {
         "outstandingdoctor": "Outstanding Doctor",
@@ -108,7 +98,8 @@
             "gender": "Gender",
             "price": "Price of examination: ",
             "save": "Save information",
-            "cancel": "Cancel"
+            "cancel": "Cancel",
+            "more": "See more"
         },
         "verify-booking": {
             "loading": "Loading data.....",

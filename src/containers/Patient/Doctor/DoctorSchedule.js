@@ -22,11 +22,18 @@ class DoctorSchedule extends Component {
 
     async componentDidMount() {
         let { language } = this.props
+        let allDays = this.setArrDays(language)
+        if (this.props.doctorId) {
+            let res = await getScheduleDoctorByDate(this.props.doctorId, allDays[0].value)
+            this.setState({
+                allTime: res.data ? res.data : []
+            })
+        }
 
         // console.log('moment vi: ', moment(new Date()).format('dddd - DD/MM'))
         // console.log('moment en: ', moment(new Date()).locale('en').format('ddd - DD/MM'))
         // console.log('moment ru: ', moment(new Date()).locale('ru').format('dd - DD/MM'))
-        let allDays = this.setArrDays(language)
+
         if (allDays && allDays.length > 0) {
             //let res = await getScheduleDoctorByDate(this.props.doctorId, allDays[0].value)
             this.setState({

@@ -19,7 +19,8 @@ class DetailSpecialty extends Component {
         this.state = {
             arrDoctor: [],
             detailSpecialty: {},
-            listProvince: []
+            listProvince: [],
+            isShowMoreDescription: false
         }
     }
     async componentDidMount() {
@@ -43,24 +44,66 @@ class DetailSpecialty extends Component {
                         })
                     }
                 }
+                let dataProvince = resProvince.data
+                if (dataProvince && dataProvince.length > 0) {
+                    dataProvince.unshift({
+                        createdAt: null,
+                        keyMap: "ALL",
+                        type: "PROVINCE",
+                        valueEn: "Nationwide",
+                        valueRu: "По всей стране",
+                        valueVi: "Toàn quốc"
+                    })
+                }
                 this.setState({
                     detailSpecialty: res.data,
                     arrDoctor: arrDoctor,
-                    listProvince: resProvince.data
+                    listProvince: dataProvince ? dataProvince : []
                 })
             }
         }
     }
 
-    handleOnChangeSelect = (event) => {
-        console.log('check province', event.target.value)
+    handleOnChangeSelect = async (event) => {
+        console.log('check province', this.props.match.params.id, event.target.value)
+        if (this.props.match && this.props.match.params && this.props.match.params.id) {
+            let id = this.props.match.params.id
+            let location = event.target.value
+            let res = await getDetailSpecialty({
+                id: id,
+                location: location
+            })
+            console.log(res.data)
+            if (res && res.errCode === 0) {
+                let dataDoctor = res.data
+                let arrDoctor = []
+                if (dataDoctor && !_.isEmpty(dataDoctor)) {
+                    let arr = dataDoctor.Doctor_Infors
+                    if (arr && arr.length > 0) {
+                        arr.map(item => {
+                            arrDoctor.push(item.doctorId)
+                        })
+                    }
+                }
+
+                this.setState({
+                    arrDoctor: arrDoctor,
+                })
+            }
+        }
     }
-    componentDidUpdate(prevProps, prevState, snapshot) {
+    async componentDidUpdate(prevProps, prevState, snapshot) {
 
     }
+    handleShowMoreDescription = () => {
+        this.setState({
+            isShowMoreDescription: !this.state.isShowMoreDescription
+        })
+    }
     render() {
-        let { arrDoctor, detailSpecialty, listProvince } = this.state
+        let { arrDoctor, detailSpecialty, listProvince, isShowMoreDescription } = this.state
         let { language } = this.props
+        console.log(listProvince)
         return (
             <div className='detail-specialty-container'>
                 <HomeHeader
@@ -68,11 +111,24 @@ class DetailSpecialty extends Component {
                     inHomePage={false}
                 />
                 <div className='detail-specialty-body'>
-                    <div className='intro-search'>
+                    <div className='intro'>
                         <div className='description-specialty'>
-                            {detailSpecialty && detailSpecialty.descriptionHTML
-                                && <div dangerouslySetInnerHTML={{ __html: detailSpecialty.descriptionHTML }}></div>
-                            }
+                            <div className={isShowMoreDescription ? 'long-description' : 'short-description'}>
+                                {detailSpecialty && detailSpecialty.descriptionHTML
+                                    && <div dangerouslySetInnerHTML={{ __html: detailSpecialty.descriptionHTML }}></div>
+                                }
+                            </div>
+                            <div className='more-description' onClick={() => this.handleShowMoreDescription()}>
+                                {isShowMoreDescription ?
+                                    <>
+                                        <FormattedMessage id='homefacility.hide' />
+                                    </>
+                                    :
+                                    <>
+                                        <FormattedMessage id='homefacility.more-description' />
+                                    </>
+                                }
+                            </div>
                         </div>
 
                     </div>
@@ -83,8 +139,8 @@ class DetailSpecialty extends Component {
                                 {listProvince && listProvince.length > 0 &&
                                     listProvince.map((item, index) => {
                                         return (
-                                            <option key={index} value={item.keyMap}>
-                                                {language === LANGUAGES.VI ? item.valueVi : (language === LANGUAGES.EN ? item.valueEn : item.valueRU)}
+                                            <option key={index} value={item.keyMap} className='province'>
+                                                {language === LANGUAGES.VI ? item.valueVi : (language === LANGUAGES.EN ? item.valueEn : item.valueRu)}
                                             </option>
                                         )
                                     })
@@ -93,6 +149,7 @@ class DetailSpecialty extends Component {
                         </div>
                         {arrDoctor && arrDoctor.length > 0 ?
                             arrDoctor.map((item, index) => {
+                                console.log(item)
                                 return (
                                     <div className='each-doctor' key={index}>
                                         <div className='dt-content-left'>
@@ -100,6 +157,7 @@ class DetailSpecialty extends Component {
                                                 doctorId={item}
                                                 //dataTime={this.props.dataTime}
                                                 isShowProfileDoctor={true}
+                                                isShowMore={true}
                                             />
                                         </div>
                                         <div className='dt-content-right'>
@@ -122,7 +180,6 @@ class DetailSpecialty extends Component {
                             ) :
                             <div>Không có bác sĩ thuộc tỉnh thành này</div>
                         }
-
                     </div>
                 </div>
                 <HomeFooter />

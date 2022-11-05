@@ -10,6 +10,7 @@ import './ProfileDoctor.scss'
 import localization from 'moment/locale/vi'
 import _ from 'lodash';
 import moment from 'moment';
+import { withRouter } from 'react-router';
 
 class ProfileDoctor extends Component {
     constructor(props) {
@@ -35,10 +36,12 @@ class ProfileDoctor extends Component {
         }
         return result
     }
-    componentDidUpdate(prevProps, prevState, snapshot) {
-
-        if (this.props.doctorId != prevProps.doctorId) {
-            // this.getProfileDoctor(this.props.doctorId)
+    async componentDidUpdate(prevProps, prevState, snapshot) {
+        if (this.props.doctorId !== prevProps.doctorId) {
+            let data = await this.getProfileDoctor(this.props.doctorId);
+            this.setState({
+                profileDoctor: data,
+            });
         }
     }
 
@@ -73,12 +76,17 @@ class ProfileDoctor extends Component {
             <></>
         )
     }
+    routerToDetailDoctor = () => {
+        if (this.props.history) {
+            this.props.history.push(`/detail-doctor/${this.props.doctorId}`)
+        }
+    }
 
     render() {
         //console.log('check props from profile doctor', this.props)
 
         let { profileDoctor } = this.state
-        let { language, dataTime, isShowProfileDoctor } = this.props
+        let { language, dataTime, isShowProfileDoctor, isShowMore } = this.props
         //let language = this.props.language
         let nameVi = '', nameEn = '', nameRu = ''
         let provinceVi = '', provinceEn = '', provinceRu = ''
@@ -115,33 +123,40 @@ class ProfileDoctor extends Component {
                                 </span>}
                             {this.renderTimeBooking(dataTime)}
                         </div>
+                        <div className='province'><i className="fas fa-map-marker"></i> {language === LANGUAGES.VI ? provinceVi : (language === LANGUAGES.EN ? provinceEn : provinceRu)}</div>
+                        <div className='price'>
+                            <i className="fas fa-dollar-sign"></i> <FormattedMessage id='patient.modal-booking.price' />
+                            {profileDoctor && profileDoctor.Doctor_Infor && profileDoctor.Doctor_Infor.priceData && language === LANGUAGES.VI &&
+                                <NumberFormat
+                                    value={profileDoctor.Doctor_Infor.priceData.valueVi}
+                                    displayType={'text'}
+                                    thousandSeparator={true}
+                                    suffix={' VND'} />
+                            }
+                            {profileDoctor && profileDoctor.Doctor_Infor && profileDoctor.Doctor_Infor.priceData && language === LANGUAGES.EN &&
+                                <NumberFormat
+                                    value={profileDoctor.Doctor_Infor.priceData.valueEn}
+                                    displayType={'text'}
+                                    thousandSeparator={true}
+                                    suffix={' $'} />
+                            }
+                            {profileDoctor && profileDoctor.Doctor_Infor && profileDoctor.Doctor_Infor.priceData && language === LANGUAGES.RU &&
+                                <NumberFormat
+                                    value={profileDoctor.Doctor_Infor.priceData.valueRu}
+                                    displayType={'text'}
+                                    thousandSeparator={true}
+                                    suffix={' РУБ'} />
+                            }
+                        </div>
                     </div>
                 </div>
-                <div className='province'><i className="fas fa-map-marker"></i> {language === LANGUAGES.VI ? provinceVi : (language === LANGUAGES.EN ? provinceEn : provinceRu)}</div>
-                <div className='price'>
-                    <i className="fas fa-dollar-sign"></i> <FormattedMessage id='patient.modal-booking.price' />
-                    {profileDoctor && profileDoctor.Doctor_Infor && profileDoctor.Doctor_Infor.priceData && language === LANGUAGES.VI &&
-                        <NumberFormat
-                            value={profileDoctor.Doctor_Infor.priceData.valueVi}
-                            displayType={'text'}
-                            thousandSeparator={true}
-                            suffix={' VND'} />
-                    }
-                    {profileDoctor && profileDoctor.Doctor_Infor && profileDoctor.Doctor_Infor.priceData && language === LANGUAGES.EN &&
-                        <NumberFormat
-                            value={profileDoctor.Doctor_Infor.priceData.valueEn}
-                            displayType={'text'}
-                            thousandSeparator={true}
-                            suffix={' $'} />
-                    }
-                    {profileDoctor && profileDoctor.Doctor_Infor && profileDoctor.Doctor_Infor.priceData && language === LANGUAGES.RU &&
-                        <NumberFormat
-                            value={profileDoctor.Doctor_Infor.priceData.valueRu}
-                            displayType={'text'}
-                            thousandSeparator={true}
-                            suffix={' РУБ'} />
-                    }
-                </div>
+
+                {isShowMore
+                    ?
+                    <div className='more' onClick={() => this.routerToDetailDoctor()} ><FormattedMessage id='patient.modal-booking.more' /></div>
+                    :
+                    <></>
+                }
             </div>
 
         )
@@ -159,4 +174,4 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ProfileDoctor);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ProfileDoctor));

@@ -2,9 +2,13 @@
     //height: 500px;
     //border: 1px solid red;
     .intro-doctor {
-        margin: 0 150px;
+        padding: 5px;
+        margin: 10px 150px;
         display: flex;
         gap: 15px;
+        box-shadow: 0 1px 6px rgba(32,33,36,0.28);
+        border-radius: 8px;
+        border-bottom: none;
         //height: 130px;
         .content-left{
             //width: 20%;
@@ -23,7 +27,7 @@
         }
         .content-right{
             width: 80%;
-            border: 1px solid blue;
+            //border: 1px solid blue;
             display: flex;
             flex-direction: column;
             padding-left: 10px;

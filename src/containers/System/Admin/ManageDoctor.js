@@ -54,6 +54,7 @@ class ManageDoctor extends Component {
     componentDidMount() {
         this.props.fetchAllDoctors()
         this.props.getAllRequiredData()
+        console.log(this.props.requiredData.resClinic)
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
@@ -68,11 +69,13 @@ class ManageDoctor extends Component {
             let listPayment = this.buildDataInputSelect(this.props.requiredData.resPayment, 'PAYMENT')
             let listProvince = this.buildDataInputSelect(this.props.requiredData.resProvince, 'PROVINCE')
             let listSpecialty = this.buildDataInputSelect(this.props.requiredData.resSpecialty, 'SPECIALTY')
+            let listClinic = this.buildDataInputSelect(this.props.requiredData.resClinic, 'CLINIC')
             this.setState({
                 listPrice: listPrice,
                 listPayment: listPayment,
                 listProvince: listProvince,
-                listSpecialty: listSpecialty
+                listSpecialty: listSpecialty,
+                listClinic: listClinic
             })
         }
         if (prevProps.language !== this.props.language) {
@@ -112,7 +115,7 @@ class ManageDoctor extends Component {
             nameClinic: this.state.nameClinic,
             addressClinic: this.state.addressClinic,
             note: this.state.note,
-            clinicId: this.state.selectedClinic && this.state.selectedClinic.value ? this.state.selectedClinic.value : '',
+            clinicId: this.state.selectedClinic.value,
             specialtyId: this.state.selectedSpecialty.value
         })
     }
@@ -121,7 +124,7 @@ class ManageDoctor extends Component {
         this.setState({ selectedDoctor });
         let { listPrice, listPayment, listProvince, listSpecialty, listClinic } = this.state
         let res = await getDetailInforDoctor(selectedDoctor.value)
-        console.log('check get detail infor doctor : ', res)
+        //console.log('check get detail infor doctor : ', res)
         if (res && res.errCode === 0 && res.data && res.data.MarkDown) {
             let markdown = res.data.MarkDown
             let doctorinfor = '', price = '', payment = '', province = '', specialty = '', clinic = ''
@@ -136,7 +139,7 @@ class ManageDoctor extends Component {
                 payment = doctorinfor.paymentId
                 province = doctorinfor.provinceId
                 specialty = doctorinfor.specialtyId
-                //clinic = doctorinfor.clinic
+                clinic = doctorinfor.clinicId
                 nameClinic = doctorinfor.nameClinic
                 addressClinic = doctorinfor.addressClinic
                 note = doctorinfor.note
@@ -145,7 +148,7 @@ class ManageDoctor extends Component {
                 selectedPayment = listPayment.find(element => element.value === payment)
                 selectedProvince = listProvince.find(element => element.value === province)
                 selectedSpecialty = listSpecialty.find(element => element.value === specialty)
-                //selectedClinic = listClinic.find(element => element.value === clinic)
+                selectedClinic = listClinic.find(element => element.value === clinic)
             }
             this.setState({
                 hasData: true,
@@ -159,7 +162,7 @@ class ManageDoctor extends Component {
                 addressClinic: addressClinic,
                 note: note,
                 selectedSpecialty: selectedSpecialty,
-                //selectedClinic : selectedClinic
+                selectedClinic: selectedClinic
             })
 
         } else {
@@ -175,10 +178,10 @@ class ManageDoctor extends Component {
                 addressClinic: '',
                 note: '',
                 selectedSpecialty: '',
-                //selectedClinic : ''
+                selectedClinic: ''
             })
         }
-        console.log('check getdetai doctor manage doctor: ', res)
+        //console.log('check getdetai doctor manage doctor: ', res)
     };
 
     handleChangeSelectInfor = async (selectedOption, name) => {
@@ -188,7 +191,7 @@ class ManageDoctor extends Component {
         this.setState({
             ...stateCopy
         })
-        console.log('check selected infor :', selectedOption, stateName)
+        //console.log('check selected infor :', selectedOption, stateName)
     }
     handleOnChangeDescription = (event, name) => {
         let stateCopy = { ...this.state }
@@ -244,12 +247,21 @@ class ManageDoctor extends Component {
                     result.push(object)
                 })
             }
+            if (type === 'CLINIC') {
+                inputData.map((item, index) => {
+                    let object = {}
+                    object.label = item.name
+                    object.value = item.id
+                    result.push(object)
+                })
+            }
+
         }
         return result
     }
 
     render() {
-        console.log('check state: ', this.state.selectedDoctor)
+        console.log('check list clinic: ', this.state.listClinic)
         return (
             <div className='manage-doctor-container'>
                 <div className='manage-doctor-title'>

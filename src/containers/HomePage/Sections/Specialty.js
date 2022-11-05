@@ -31,7 +31,7 @@ class Specialty extends Component {
     }
 
     handleViewDetailSpecialty = (specialty) => {
-        console.log('view detail doctor: ', specialty)
+        // console.log('view detail doctor: ', specialty)
         if (this.props.history) {
             this.props.history.push(`/detail-specialty/${specialty.id}`)
         }
