@@ -1,0 +1,36 @@
+div._loading_overlay_wrapper {
+    position: unset;
+
+    ._loading_overlay_overlay {
+        z-index: 100000;
+    }
+}
+
+.manage-patient-container {
+    .m-p-title {
+        font-size: 15px;
+        margin: 10px 0;
+        text-transform: uppercase;
+        text-align: center;
+    }
+    .manage-patinet-body {
+        padding: 0 20px;
+        
+        .table-manage-patient {
+            table, th, td {
+                border: 1px solid black;
+                border-collapse: collapse;
+
+                .btn-confirm-booking {
+                    border: none;
+                    outline: none;
+                    background-color: aqua;
+                }
+            }
+        }
+        th, td {
+            padding: 5px;
+            text-align: left;
+        }
+    }
+}

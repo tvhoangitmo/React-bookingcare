@@ -33,9 +33,13 @@ class OutstandingDoctor extends Component {
     }
 
     handleViewDetailDoctor = (doctor) => {
-        console.log('view detail doctor: ', doctor)
         if (this.props.history) {
             this.props.history.push(`/detail-doctor/${doctor.id}`)
+        }
+    }
+    handleFindDoctor = () => {
+        if (this.props.history) {
+            this.props.history.push(`/find-doctor`)
         }
     }
     render() {
@@ -51,7 +55,11 @@ class OutstandingDoctor extends Component {
                     <div className='section-container'>
                         <div className='section-header'>
                             <span className='title-section'><FormattedMessage id='homedoctor.outstandingdoctor' /></span>
-                            <button className='btn-section'><FormattedMessage id='homedoctor.search' /></button>
+                            <button className='btn-section'
+                                onClick={() => this.handleFindDoctor()}
+                            >
+                                <FormattedMessage id='homedoctor.search' />
+                            </button>
                         </div>
                         <div className='section-body'>
                             <Slider {...this.props.settings}>

@@ -37,6 +37,12 @@ class Specialty extends Component {
         }
     }
 
+    handleSeeMoreSpecialty = () => {
+        if (this.props.history) {
+            this.props.history.push(`/find-specialty`)
+        }
+    }
+
     render() {
         //console.log('check arr specialty : ', this.state.arrSpecialty)
         let { arrSpecialty } = this.state
@@ -46,7 +52,11 @@ class Specialty extends Component {
                     <div className='section-container'>
                         <div className='section-header'>
                             <span className='title-section'><FormattedMessage id='homespecialty.specialtypopular' /></span>
-                            <button className='btn-section'><FormattedMessage id='homespecialty.more' /></button>
+                            <button className='btn-section'
+                                onClick={() => this.handleSeeMoreSpecialty()}
+                            >
+                                <FormattedMessage id='homespecialty.more' />
+                            </button>
                         </div>
                         <div className='section-body'>
                             <Slider {...this.props.settings}>

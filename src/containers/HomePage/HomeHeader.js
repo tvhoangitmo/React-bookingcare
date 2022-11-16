@@ -14,6 +14,7 @@ import { LANGUAGES } from '../../utils'
 import { changeLanguageApp } from '../../store/actions';
 import { FormattedMessage } from 'react-intl';
 import { withRouter } from 'react-router';
+import { path } from '../../utils';
 class HomeHeader extends Component {
 
     // constructor(props) {
@@ -28,6 +29,12 @@ class HomeHeader extends Component {
     returnToHome = () => {
         if (this.props.history) {
             this.props.history.push(`/home`)
+        }
+    }
+
+    handleFindSection = (section) => {
+        if (this.props.history) {
+            this.props.history.push(section)
         }
     }
 
@@ -54,15 +61,29 @@ class HomeHeader extends Component {
 
                         <div className='center-content'>
                             <div className='child-content'>
-                                <div><b> <FormattedMessage id='homeheader.specialty' /></b></div>
+                                <div
+                                    onClick={() => this.handleFindSection(path.FIND_SPECIALTY)}
+                                >
+                                    <b> <FormattedMessage id='homeheader.specialty' /></b>
+                                </div>
                                 <div className='subs-title'><FormattedMessage id='homeheader.searchdoctor' /></div>
                             </div>
                             <div className='child-content'>
-                                <div><b><FormattedMessage id='homeheader.health-facility' /></b></div>
+                                <div
+                                    onClick={() => this.handleFindSection(path.FIND_CLINIC)}
+                                >
+                                    <b>
+                                        <FormattedMessage id='homeheader.health-facility' />
+                                    </b>
+                                </div>
                                 <div className='subs-title'><FormattedMessage id='homeheader.select-hospital' /></div>
                             </div>
                             <div className='child-content'>
-                                <div><b><FormattedMessage id='homeheader.doctor' /></b></div>
+                                <div
+                                    onClick={() => this.handleFindSection(path.FIND_DOCTOR)}
+                                >
+                                    <b><FormattedMessage id='homeheader.doctor' /></b>
+                                </div>
                                 <div className='subs-title'><FormattedMessage id='homeheader.select-doctor' /></div>
                             </div>
                             <div className='child-content'>

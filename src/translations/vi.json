@@ -50,7 +50,8 @@
             "manage-handbook": "Quản lý cẩm nang"
         },
         "doctor": {
-            "manage-schedule": "Quản lý kế hoạch khám bệnh"
+            "manage-schedule": "Quản lý kế hoạch khám bệnh",
+            "manage-patient": "Quản lý bệnh nhân khám bệnh"
         }
     },
     "manage-user": {
@@ -106,6 +107,9 @@
             "verify-success": "Xác thực thông tin thành công",
             "confirmed-or-exist": "Lịch hẹn đã đuợc xác nhận hoặc không tồn tại",
             "back": "Trở về trang chủ"
+        },
+        "search-doctor": {
+            "search-doctor": "Tìm kiếm bác sĩ"
         }
     },
     "admin": {

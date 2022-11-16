@@ -1,0 +1,42 @@
+
+.search-doctor {
+    .search {
+        width: 100%;
+        left: 0;
+        background: #f5f5f5;
+        //top: 50px;
+        height: 50px;
+        padding: 10px 15px;
+        // z-index: 100;
+        .input-search {
+            height: 30px;
+            padding: 10px 15px;
+            background: rgba(255, 255, 255, 0.7);
+            width: 100%;
+            border: 1px solid #ccc;
+            border-radius: 20px;
+        }
+    }
+    .result-search {
+        margin-top: 5px;
+        .doctor-container {
+            cursor: pointer;
+            padding: 5px;
+            display: flex;
+            gap: 15px;
+            border-bottom: 1px solid #eee;
+            box-sizing: border-box;
+            .doctor-image {
+                border-radius: 50%;
+                height: 120px    ;
+                width: 120px;
+                background-position: center center;
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-color: #eee;
+            }
+        }
+    }
+    
+}
+

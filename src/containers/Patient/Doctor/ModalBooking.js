@@ -50,6 +50,7 @@ class ModalBooking extends Component {
         this.setState({
             ...copyState
         })
+        console.log(this.state.name)
     }
 
     handleOnChangeDatePicker = (date) => {
@@ -64,14 +65,14 @@ class ModalBooking extends Component {
         let date = new Date(this.state.birthday).getTime()
         let res = await saveInforPatient({
             name: this.state.name,
-            birthday: this.state.birthday,
+            birthday: date,
             phone: this.state.phone,
             email: this.state.email,
             address: this.state.address,
             reason: this.state.reason,
             gender: this.state.gender,
             doctorId: this.props.doctorId,
-            date: date,
+            date: this.props.dataTime.date,
             dataTime: this.props.dataTime,
             timeType: this.props.dataTime.timeType,
 
@@ -126,8 +127,8 @@ class ModalBooking extends Component {
                             <div className='col-6 form-group' >
                                 <label><FormattedMessage id='patient.modal-booking.name' /></label>
                                 <input className='form-control'
-                                    value={this.state.name}
                                     onChange={(event) => this.handleChangeInputModal(event, 'name')}
+                                    value={this.state.name}
                                 />
                             </div>
                             <div className='col-6 form-group' >

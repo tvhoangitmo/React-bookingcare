@@ -50,7 +50,8 @@
             "manage-handbook": "Manage handbook"
         },
         "doctor": {
-            "manage-schedule": "Manage medical examination plan"
+            "manage-schedule": "Manage medical examination plan",
+            "manage-patient": "Manage patient examination"
         }
     },
     "manage-user": {
@@ -106,6 +107,9 @@
             "verify-success": "Verification successful",
             "confirmed-or-exist": "The appointment is confirmed or does not exist",
             "back": "Back to home page"
+        },
+        "search-doctor": {
+            "search-doctor": "Search for a doctor"
         }
     },
     "admin": {

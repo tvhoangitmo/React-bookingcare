@@ -36,6 +36,11 @@ class MedicalFacility extends Component {
     changeLanguage = (language) => {
         this.props.changeLanguageAppRedux(language)
     }
+    handleFindClinic = () => {
+        if (this.props.history) {
+            this.props.history.push(`/find-clinic`)
+        }
+    }
 
     render() {
         let { arrClinic } = this.state
@@ -45,7 +50,11 @@ class MedicalFacility extends Component {
                     <div className='section-container'>
                         <div className='section-header'>
                             <span className='title-section'><FormattedMessage id='homefacility.outstanding' /></span>
-                            <button className='btn-section'><FormattedMessage id='homefacility.search' /></button>
+                            <button className='btn-section'
+                                onClick={() => this.handleFindClinic()}
+                            >
+                                <FormattedMessage id='homefacility.search' />
+                            </button>
                         </div>
                         <div className='section-body'>
                             <Slider {...this.props.settings}>

@@ -18,6 +18,9 @@ import Doctor from '../routes/Doctor';
 import VerifyEmail from './Patient/VerifyEmail';
 import DetailSpecialty from './Patient/Specialty/DetailSpecialty';
 import DetailClinic from './Patient/Clinic/DetailClinic';
+import FindSpecialty from './HomePage/HomeHeader/FindSpecialty';
+import FindDoctor from './HomePage/HomeHeader/FindDoctor';
+import FindClinic from './HomePage/HomeHeader/FindClinic';
 
 class App extends Component {
 
@@ -57,6 +60,9 @@ class App extends Component {
                                     <Route path={path.VERIFY_EMAIL_BOOKING} component={VerifyEmail} />
                                     <Route path={path.DETAIL_SPECIALTY} component={DetailSpecialty} />
                                     <Route path={path.DETAIL_CLINIC} component={DetailClinic} />
+                                    <Route path={path.FIND_SPECIALTY} component={FindSpecialty} />
+                                    <Route path={path.FIND_DOCTOR} component={FindDoctor} />
+                                    <Route path={path.FIND_CLINIC} component={FindClinic} />
                                 </Switch>
                             </CustomScrollbars>
                         </div>

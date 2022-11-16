@@ -94,6 +94,13 @@ const getDetailClinic = (data) => {
     return axios.get(`/api/get-detail-clinic-by-id?id=${data.id}`)
 }
 
+const getAllPatientForDoctor = (data) => {
+    return axios.get(`/api/get-doctor-booking-by-date?doctorId=${data.doctorId}&date=${data.date}`)
+}
+
+const postSendRemery = (data) => {
+    return axios.post(`/api/send-remedy`, data)
+}
 export {
     handleLoginApi,
     getAllUsers,
@@ -116,5 +123,7 @@ export {
     getDetailSpecialty,
     createNewClinic,
     getAllClinic,
-    getDetailClinic
+    getDetailClinic,
+    getAllPatientForDoctor,
+    postSendRemery
 }
