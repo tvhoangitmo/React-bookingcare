@@ -93,7 +93,9 @@ class HomeHeader extends Component {
                         </div>
 
                         <div className='right-content'>
-                            <div className='support'>
+                            <div className='support'
+                                onClick={() => this.handleFindSection(path.SUPPORT)}
+                            >
                                 <i className="fas fa-question-circle"></i>
                                 <FormattedMessage id='homeheader.support' />
                             </div>

@@ -9,7 +9,7 @@ import moment, { months } from 'moment';
 import { LANGUAGES, dateFormat } from '../../../utils';
 import { toast } from "react-toastify"
 import _ from 'lodash';
-import { saveBulkScheduleDoctor } from '../../../services/userService';
+import { saveBulkScheduleDoctor, getScheduleDoctorByDate } from '../../../services/userService';
 class ManageSchedule extends Component {
     constructor(props) {
         super(props);
@@ -17,11 +17,25 @@ class ManageSchedule extends Component {
             listDoctor: [],
             selectedDoctor: {},
             currentDate: '',
-            rangeTime: []
+            rangeTime: [],
+            scheduleDoctorByDate: []
         }
     }
     componentDidMount() {
-        this.props.fetchAllDoctors()
+        let { userInfor } = this.props
+        console.log(userInfor)
+        if (userInfor && userInfor.roleId && userInfor.roleId === 'R2') {
+            let object = {}
+            let label = `${userInfor.lastName} ${userInfor.firstName}`
+            object.label = label
+            object.value = userInfor.id
+            this.setState({
+                selectedDoctor: object
+            })
+        }
+        else {
+            this.props.fetchAllDoctors()
+        }
         this.props.fetchAllScheduleTime()
     }
 
@@ -35,13 +49,8 @@ class ManageSchedule extends Component {
         if (prevProps.allScheduleTime !== this.props.allScheduleTime) {
             let data = this.props.allScheduleTime
             if (data && data.length > 0) {
-                // data = data.map(item => {
-                //     item.isSelected = false
-                //     return item
-                // })
                 data = data.map(item => ({ ...item, isSelected: false }))
             }
-            //console.log('check data time: ', data)
             this.setState({
                 rangeTime: data
             })
@@ -50,7 +59,6 @@ class ManageSchedule extends Component {
 
     buildDataInputSelect = (inputData) => {
         let result = []
-        let { language } = this.props
         if (inputData && inputData.length > 0) {
             inputData.map((item, index) => {
                 let object = {}
@@ -67,7 +75,20 @@ class ManageSchedule extends Component {
         this.setState({ selectedDoctor: selectedDoctor });
     };
 
-    handleOnChangeDatePicker = (date) => {
+    handleOnChangeDatePicker = async (date) => {
+        let data = this.props.allScheduleTime
+        if (data && data.length > 0) {
+            data = data.map(item => ({ ...item, isSelected: false }))
+        }
+        this.setState({
+            rangeTime: data
+        })
+        let { userInfor } = this.props
+        let formatedDate = new Date(date[0]).getTime()
+        let res = await getScheduleDoctorByDate(userInfor.id, formatedDate)
+        this.setState({
+            scheduleDoctorByDate: res.data ? res.data : []
+        })
         this.setState({
             currentDate: date[0]
         })
@@ -100,8 +121,6 @@ class ManageSchedule extends Component {
             return
         }
 
-        //let formatedDate = moment(currentDate).format(dateFormat.SEND_TO_SERVER)
-        //let formatedDate = moment(currentDate).unix()
         let formatedDate = new Date(currentDate).getTime()
 
         if (rangeTime && rangeTime.length > 0) {
@@ -133,13 +152,18 @@ class ManageSchedule extends Component {
         }
 
     }
-
+    isSelectedTime = (item) => {
+        let { scheduleDoctorByDate } = this.state
+        for (let i = 0; i < scheduleDoctorByDate.length; i++) {
+            if (item.keyMap === scheduleDoctorByDate[i].timeType) {
+                item.isSelected = true
+            }
+        }
+    }
     render() {
-        //console.log('check props: ', this.props.addScheduleTime)
-        let { rangeTime } = this.state
-        let { language } = this.props
+        let { rangeTime, scheduleDoctorByDate } = this.state
+        let { language, userInfor } = this.props
         let yesterday = new Date(new Date().setDate(new Date().getDate() - 1))
-        //console.log('check state: ', rangeTime)
         return (
             <div className='manage-schedule-container'>
                 <div className='manage-schedule-title'>
@@ -149,11 +173,23 @@ class ManageSchedule extends Component {
                     <div className='row'>
                         <div className='col-6'>
                             <label><FormattedMessage id='manage-schedule.choose-doctor' /></label>
-                            <Select
-                                value={this.state.selectedDoctor}
-                                onChange={this.handleChangeSelectDoctor}
-                                options={this.state.listDoctor}
-                            />
+                            {userInfor && userInfor.roleId &&
+                                userInfor.roleId === 'R2' ?
+                                <div>
+                                    <input
+                                        className='form-control'
+                                        type='text'
+                                        disabled
+                                        value={this.state.selectedDoctor.label}
+                                    />
+                                </div> :
+                                <Select
+                                    value={this.state.selectedDoctor}
+                                    onChange={this.handleChangeSelectDoctor}
+                                    options={this.state.listDoctor}
+                                />
+                            }
+
                         </div>
                         <div className='col-6'>
                             <label><FormattedMessage id='manage-schedule.choose-date' /></label>
@@ -167,7 +203,8 @@ class ManageSchedule extends Component {
                         <div className='col-12 hour-container'>
                             {rangeTime && rangeTime.length > 0 &&
                                 rangeTime.map((item, index) => {
-                                    //console.log('check isselected: ', item.isSelected)
+                                    this.isSelectedTime(item)
+                                    //console.log(item.isSelected)
                                     return (
                                         <button className={item.isSelected === true ? 'btn btn-schedule active' : 'btn btn-schedule'}
                                             key={index}
@@ -200,7 +237,8 @@ const mapStateToProps = state => {
         isLoggedIn: state.user.isLoggedIn,
         language: state.app.language,
         listDoctor: state.admin.allDoctors,
-        allScheduleTime: state.admin.allScheduleTime
+        allScheduleTime: state.admin.allScheduleTime,
+        userInfor: state.user.userInfo
     };
 };
 

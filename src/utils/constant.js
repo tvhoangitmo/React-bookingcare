@@ -11,6 +11,7 @@ export const path = {
     FIND_SPECIALTY: '/find-specialty',
     FIND_DOCTOR: '/find-doctor',
     FIND_CLINIC: '/find-clinic',
+    SUPPORT: '/support'
 };
 
 export const LANGUAGES = {

@@ -24,7 +24,6 @@ class FindSpecialty extends Component {
     }
 
     handleViewDetailSpecialty = (specialty) => {
-        // console.log('view detail doctor: ', specialty)
         if (this.props.history) {
             this.props.history.push(`/detail-specialty/${specialty.id}`)
         }
@@ -35,7 +34,6 @@ class FindSpecialty extends Component {
     }
     render() {
         let { arrSpecialty } = this.state
-        console.log(arrSpecialty)
         return (
             <>
                 <HomeHeader

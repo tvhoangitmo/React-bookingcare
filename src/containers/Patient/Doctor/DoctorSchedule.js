@@ -3,9 +3,8 @@ import { connect } from "react-redux";
 import './DoctorSchedule.scss'
 import { LANGUAGES } from '../../../utils';
 import localization from 'moment/locale/vi'
-//import localization from 'moment/local/ru'
 import moment from 'moment';
-import { getScheduleDoctorByDate } from '../../../services/userService';
+import { getScheduleDoctorByDate, getAllPatientForDoctor } from '../../../services/userService';
 import { FormattedMessage } from 'react-intl';
 import ModalBooking from './ModalBooking'
 
@@ -16,7 +15,8 @@ class DoctorSchedule extends Component {
             allDays: [],
             allTime: [],
             isOpenModal: false,
-            dataTime: {}
+            dataTime: {},
+            bookingDoctorInDate: []
         }
     }
 
@@ -28,20 +28,20 @@ class DoctorSchedule extends Component {
             this.setState({
                 allTime: res.data ? res.data : []
             })
-        }
-
-        // console.log('moment vi: ', moment(new Date()).format('dddd - DD/MM'))
-        // console.log('moment en: ', moment(new Date()).locale('en').format('ddd - DD/MM'))
-        // console.log('moment ru: ', moment(new Date()).locale('ru').format('dd - DD/MM'))
-
-        if (allDays && allDays.length > 0) {
-            //let res = await getScheduleDoctorByDate(this.props.doctorId, allDays[0].value)
+            let res2 = await getAllPatientForDoctor({
+                doctorId: this.props.doctorId,
+                date: allDays[0].value
+            })
             this.setState({
-                allDays: allDays,
-                //allTime: res.data ? res.data : []
+                bookingDoctorInDate: res2.data ? res2.data : []
             })
         }
 
+        if (allDays && allDays.length > 0) {
+            this.setState({
+                allDays: allDays,
+            })
+        }
     }
 
 
@@ -99,7 +99,6 @@ class DoctorSchedule extends Component {
                     allTime: allTime
                 })
             }
-            //console.log('check schedule doctor by date: ', this.state.allTime)
         }
     }
 
@@ -120,10 +119,8 @@ class DoctorSchedule extends Component {
         let allDays = this.state.allDays
         let allTime = this.state.allTime
         let language = this.props.language
-        //console.log('check props', this.props)
-        // console.log('state :', this.state)
-        // console.log('props :', this.props)
-
+        let { bookingDoctorInDate } = this.state
+        console.log(bookingDoctorInDate, allTime)
         return (
             <React.Fragment>
                 <div className='doctor-schedule-container'>
@@ -131,7 +128,6 @@ class DoctorSchedule extends Component {
                         <select onChange={(event) => this.handleOnChangeSelect(event)}>
                             {allDays && allDays.length > 0 &&
                                 allDays.map((item, index) => {
-                                    //console.log('a ', item)
                                     return (
                                         <option key={index} value={item.value}>
                                             {item.label}
@@ -152,7 +148,6 @@ class DoctorSchedule extends Component {
                                 <React.Fragment>
                                     <div className='schedule-content'>
                                         {allTime.map((item, index) => {
-                                            //console.log('a ', item)
                                             return (
                                                 <button
                                                     key={index}

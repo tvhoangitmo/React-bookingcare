@@ -41,7 +41,7 @@
             "manage-doctor": "Quản lý bác sĩ",
             "manage-admin": "Quản lý admin",
             "crud": "CRUD user",
-            "crud-redux": "CRUD Redux",
+            "crud-user": "Tạo/sửa người dùng",
             "clinic": "Phòng khám",
             "manage-clinic": "Quản lý phòng khám",
             "specialty": "Chuyên khoa",
@@ -75,6 +75,10 @@
         "choose-doctor": "Chọn bác sĩ",
         "choose-date": "Chọn ngày khám",
         "save": "Lưu lựa chọn"
+    },
+    "manage-patient": {
+        "title": "Quản lý bệnh nhân khám bệnh",
+        "choose-date": "Chọn ngày khám"
     },
     "patient": {
         "detail-doctor": {

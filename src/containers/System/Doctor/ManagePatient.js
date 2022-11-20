@@ -121,10 +121,10 @@ class ManagePatient extends Component {
                     text='Loading...'
                 >
                     <div className='manage-patient-container'>
-                        <div className='m-p-title'>Quan ly benh nhan kham benh</div>
+                        <div className='m-p-title'><FormattedMessage id='manage-patient.title' /></div>
                         <div className='manage-patinet-body row'>
                             <div className='col-4 form-group'>
-                                <label>Chon ngay kham</label>
+                                <label><FormattedMessage id='manage-patient.choose-date' /></label>
                                 <DatePicker
                                     onChange={this.handleOnChangeDatePicker}
                                     className='form-control'

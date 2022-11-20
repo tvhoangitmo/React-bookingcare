@@ -101,6 +101,9 @@ const getAllPatientForDoctor = (data) => {
 const postSendRemery = (data) => {
     return axios.post(`/api/send-remedy`, data)
 }
+const createNewHandBook = (data) => {
+    return axios.post('/api/create-new-handbook', data)
+}
 export {
     handleLoginApi,
     getAllUsers,
@@ -125,5 +128,6 @@ export {
     getAllClinic,
     getDetailClinic,
     getAllPatientForDoctor,
-    postSendRemery
+    postSendRemery,
+    createNewHandBook
 }

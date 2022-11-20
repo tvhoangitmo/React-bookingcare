@@ -20,26 +20,26 @@ class HandBook extends Component {
                 <div className=' section-share section-medical-facility'>
                     <div className='section-container'>
                         <div className='section-header'>
-                            <span className='title-section'>Cẩm nang</span>
-                            <button className='btn-section'>Tất cả bài viết</button>
+                            <span className='title-section'>HandBook</span>
+                            <button className='btn-section'>All handbook</button>
                         </div>
                         <div className='section-body'>
                             <Slider {...this.props.settings}>
                                 <div className='section-customize'>
                                     <div className='bg-image section-handbook'></div>
-                                    <div className='name-image'>Cẩm nang</div>
+                                    <div className='name-image'>HandBook</div>
                                 </div>
                                 <div className='section-customize'>
                                     <div className='bg-image section-handbook'></div>
-                                    <div className='name-image'>Cẩm nang</div>
+                                    <div className='name-image'>HandBook</div>
                                 </div>
                                 <div className='section-customize'>
                                     <div className='bg-image section-handbook'></div>
-                                    <div className='name-image'>Cẩm nang</div>
+                                    <div className='name-image'>HandBook</div>
                                 </div>
                                 <div className='section-customize'>
                                     <div className='bg-image section-handbook'></div>
-                                    <div className='name-image'>Cẩm nang</div>
+                                    <div className='name-image'>HandBook</div>
                                 </div>
 
                             </Slider>

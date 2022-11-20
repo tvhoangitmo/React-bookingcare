@@ -28,8 +28,7 @@ class Header extends Component {
             let role = userInfo.roleId
             if (role === USER_ROLE.ADMIN) {
                 menu = adminMenu
-            }
-            if (role === USER_ROLE.DOCTOR) {
+            } else {
                 menu = doctorMenu
             }
         }

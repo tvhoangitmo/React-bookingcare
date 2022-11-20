@@ -41,7 +41,7 @@
             "manage-doctor": "Manage doctors",
             "manage-admin": "Manage admin",
             "crud": "CRUD user",
-            "crud-redux": "CRUD Redux",
+            "crud-user": "Create/edit users",
             "clinic": "Clinics",
             "manage-clinic": "Manage clinics",
             "specialty": "Specialties",
@@ -75,6 +75,10 @@
         "choose-doctor": "Choose a doctor",
         "choose-date": "Choose a medical examination date",
         "save": "Save selection"
+    },
+    "manage-patient": {
+        "title": "Manage medical examination patients",
+        "choose-date": "Select examination date"
     },
     "patient": {
         "detail-doctor": {

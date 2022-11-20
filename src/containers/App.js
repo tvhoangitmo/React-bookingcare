@@ -21,6 +21,7 @@ import DetailClinic from './Patient/Clinic/DetailClinic';
 import FindSpecialty from './HomePage/HomeHeader/FindSpecialty';
 import FindDoctor from './HomePage/HomeHeader/FindDoctor';
 import FindClinic from './HomePage/HomeHeader/FindClinic';
+import Support from './Patient/Support/Support';
 
 class App extends Component {
 
@@ -63,6 +64,7 @@ class App extends Component {
                                     <Route path={path.FIND_SPECIALTY} component={FindSpecialty} />
                                     <Route path={path.FIND_DOCTOR} component={FindDoctor} />
                                     <Route path={path.FIND_CLINIC} component={FindClinic} />
+                                    <Route path={path.SUPPORT} component={Support} />
                                 </Switch>
                             </CustomScrollbars>
                         </div>

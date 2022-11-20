@@ -41,7 +41,7 @@
             "manage-doctor": "Управление врачами",
             "manage-admin": "Управление администратором",
             "crud": "CRUD user",
-            "crud-redux": "CRUD Redux",
+            "crud-user": "Создавать/редактировать пользователей",
             "clinic": "Клиники",
             "manage-clinic": "Управление клиниками",
             "specialty": "Специальности",
@@ -75,6 +75,10 @@
         "choose-doctor": "Выбрать врача",
         "choose-date": "Выберите дату медосмотра",
         "save": "Сохранить выбор"
+    },
+    "manage-patient": {
+        "title": "Управление медицинским осмотром пациентов",
+        "choose-date": "Выберите дату экзамена"
     },
     "patient": {
         "detail-doctor": {
