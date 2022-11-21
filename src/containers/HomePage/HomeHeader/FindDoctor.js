@@ -7,6 +7,7 @@ import { FormattedMessage } from 'react-intl';
 import HomeHeader from '../HomeHeader';
 import { getAllDoctor } from '../../../services/userService';
 import './FindDoctor.scss'
+import './Path.scss'
 class FindDoctor extends Component {
     constructor(props) {
         super(props)
@@ -30,6 +31,12 @@ class FindDoctor extends Component {
         // console.log('view detail doctor: ', specialty)
         if (this.props.history) {
             this.props.history.push(`/detail-doctor/${doctor.id}`)
+        }
+    }
+
+    goToPage = (path) => {
+        if (this.props.history) {
+            this.props.history.push(path)
         }
     }
 
@@ -83,6 +90,11 @@ class FindDoctor extends Component {
                 <HomeHeader
                     inHomePage={false}
                 />
+                <div className='path'>
+                    <i className="fas fa-home" onClick={() => this.goToPage('/home')}><FormattedMessage id='path.home' /></i>
+                    <span> / </span>
+                    <span onClick={() => this.goToPage('/find-doctor')} ><FormattedMessage id='path.doctor' /></span>
+                </div>
                 <div className='search-doctor'>
                     <div className='col-12 form-group search'>
                         <input className='form-control input-search' type='search' placeholder='Find doctor'

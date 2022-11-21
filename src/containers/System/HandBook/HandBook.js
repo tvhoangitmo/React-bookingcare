@@ -4,20 +4,18 @@ import { connect } from "react-redux";
 import { Redirect } from 'react-router-dom';
 import { LANGUAGES, CommonUtils } from '../../../utils';
 import { FormattedMessage } from 'react-intl';
-import './ManageSpecialty.scss'
-
 import MarkdownIt from 'markdown-it';
 import MdEditor from 'react-markdown-editor-lite';
-import { createNewSpecialty } from '../../../services/userService';
 import { toast } from 'react-toastify';
+import './HandBook.scss'
+import { createNewHandBook } from '../../../services/userService';
 
 const mdParser = new MarkdownIt(/* Markdown-it options */);
-
-class ManageSpecialty extends Component {
+class HandBook extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            name: '',
+            title: '',
             imageBase64: '',
             descriptionMarkdown: '',
             descriptionHTML: ''
@@ -31,11 +29,22 @@ class ManageSpecialty extends Component {
     }
 
     handleOnChangeInput = (event, id) => {
-        let stateCopy = { ...this.state }
-        stateCopy[id] = event.target.value
+        let copyState = { ...this.state }
+        copyState[id] = event.target.value
         this.setState({
-            ...stateCopy
+            ...copyState
         })
+    }
+
+    handleOnChangeImage = async (e) => {
+        let data = e.target.files
+        let file = data[0]
+        if (file) {
+            let base64 = await CommonUtils.getBase64(file)
+            this.setState({
+                imageBase64: base64
+            })
+        }
     }
 
     handleEditorChange = ({ html, text }) => {
@@ -45,50 +54,38 @@ class ManageSpecialty extends Component {
         })
     }
 
-    handleOnChangeImage = async (e) => {
-        let data = e.target.files
-        let file = data[0]
-        if (file) {
-            let base64 = await CommonUtils.getBase64(file)
-            // console.log(objUrl)
-            this.setState({
-                imageBase64: base64
-            })
-        }
-    }
-
-    handleSaveSpecialty = async () => {
-        let res = await createNewSpecialty({
-            name: this.state.name,
+    handleSavehandbook = async () => {
+        let res = await createNewHandBook({
+            title: this.state.title,
             imageBase64: this.state.imageBase64,
-            descriptionMarkdown: this.state.descriptionMarkdown,
-            descriptionHTML: this.state.descriptionHTML
+            descriptionHTML: this.state.descriptionHTML,
+            descriptionMarkdown: this.state.descriptionMarkdown
         })
         if (res && res.errCode === 0) {
-            toast.success('Create a new specialty successful')
+            toast.success("Create new handbook successfully")
             this.setState({
-                name: '',
+                title: '',
                 imageBase64: '',
                 descriptionMarkdown: '',
                 descriptionHTML: ''
             })
         } else {
-            toast.error('Create failed')
+            toast.error("Create new handbook failed")
         }
     }
 
     render() {
         return (
-            <div className='manage-specialty-container'>
-                <div className='ms-title'><FormattedMessage id='menu.admin.manage-specialty' /></div>
-                <div className='add-new-specialty row'>
+            <div className='manage-handbook-container'>
+                <div className='ms-title'><FormattedMessage id='menu.admin.manage-handbook' /></div>
+                <div className='add-new-handbook row'>
                     <div className='col-6 form-group'>
-                        <label>Name</label>
+                        <label>Title</label>
                         <input
                             className='form-control'
                             type='text'
-                            value={this.state.name}
-                            onChange={(event) => this.handleOnChangeInput(event, 'name')}
+                            value={this.state.title}
+                            onChange={(event) => this.handleOnChangeInput(event, 'title')}
                         />
                     </div>
                     <div className='col-6 form-group'>
@@ -108,8 +105,8 @@ class ManageSpecialty extends Component {
                         />
                     </div>
                     <div className='col-12'>
-                        <button className='btn-save-specialty'
-                            onClick={() => this.handleSaveSpecialty()}
+                        <button className='btn-save-handbook'
+                            onClick={() => this.handleSavehandbook()}
                         >
                             Save
                         </button>
@@ -131,4 +128,4 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ManageSpecialty);
+export default connect(mapStateToProps, mapDispatchToProps)(HandBook);

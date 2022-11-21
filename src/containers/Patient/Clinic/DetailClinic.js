@@ -56,6 +56,11 @@ class DetailClinic extends Component {
             isShowMoreDescription: !this.state.isShowMoreDescription
         })
     }
+    goToPage = (path) => {
+        if (this.props.history) {
+            this.props.history.push(path)
+        }
+    }
     render() {
         let { arrDoctor, detailClinic, isShowMoreDescription } = this.state
         return (
@@ -64,6 +69,13 @@ class DetailClinic extends Component {
                     isShowBanner={false}
                     inHomePage={false}
                 />
+                <div className='path'>
+                    <i className="fas fa-home" onClick={() => this.goToPage('/home')}><FormattedMessage id='path.home' /></i>
+                    <span> / </span>
+                    <span onClick={() => this.goToPage('/find-clinic')} ><FormattedMessage id='path.clinic' /></span>
+                    <span> / </span>
+                    <span> {detailClinic.name}</span>
+                </div>
                 <div className='title-clinic'>{detailClinic.name}</div>
                 <div className='detail-clinic-body'>
                     <div className='intro'>

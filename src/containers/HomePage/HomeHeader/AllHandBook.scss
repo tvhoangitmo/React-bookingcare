@@ -1,0 +1,27 @@
+.handbook-title {
+    padding: 5px 150px;
+    font-size: 32px;
+    font-weight: 500;
+    background: rgba(243, 240, 240, 0.867);
+}
+.allhandbook-container {
+    //padding: 5px;
+    margin: 5px 150px;
+    display: flex;
+    gap: 15px;
+    border-bottom: 1px solid #eee;
+    .allhandbook-image {
+        height: 100px;
+        width: 200px;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-color: #eee;
+        cursor: pointer;
+    }
+    .allhandbook-name {
+        font-size: 18px;
+        font-weight: bold;
+        font-family: SFD-Bold;
+    }
+}

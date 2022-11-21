@@ -9,6 +9,7 @@ import { LANGUAGES } from '../../../utils';
 import HomeFooter from '../../HomePage/Sections/HomeFooter';
 import DoctorSchedule from './DoctorSchedule';
 import DoctorExtraInfor from './DoctorExtraInfor';
+import { FormattedMessage } from 'react-intl';
 
 class DetailDoctor extends Component {
     constructor(props) {
@@ -39,6 +40,11 @@ class DetailDoctor extends Component {
     componentDidUpdate(prevProps, prevState, snapshot) {
 
     }
+    goToPage = (path) => {
+        if (this.props.history) {
+            this.props.history.push(path)
+        }
+    }
     render() {
         //console.log('check state detail doctor: ', this.state.detailDoctor)
         //console.log('state :', this.state)
@@ -65,6 +71,14 @@ class DetailDoctor extends Component {
                     inHomePage={false}
                 />
                 <div className='doctor-detail-container'>
+                    <div className='path'>
+                        <i className="fas fa-home" onClick={() => this.goToPage('/home')}><FormattedMessage id='path.home' /></i>
+                        <span> / </span>
+                        <span onClick={() => this.goToPage('/find-doctor')} ><FormattedMessage id='path.doctor' /></span>
+
+                        <span> / </span>
+                        <span> {nameVi}</span>
+                    </div>
                     <div className='intro-doctor'>
                         <div className='content-left'
                             style={{ backgroundImage: `url(${detailDoctor && detailDoctor.image ? detailDoctor.image : ''})` }}>

@@ -1,0 +1,38 @@
+.pg-container {
+    //background-color: #ddd;
+    .path {
+        padding: 5px 10px;
+        width: 800px;
+        margin: 0 auto;
+        color: #2cd3d3;
+        font-weight: bold;
+        font-family: SFD-Bold;
+        cursor: pointer;
+    }
+    .handbook-container {
+        padding: 5px 10px;
+        width: 800px;
+        margin: 0 auto;
+        box-shadow: 0 0 50px 0 rgba(0, 0, 0,0.1);
+        border: 1px #e9eef3 solid;
+    
+        .title-handbook {
+            font-weight: bold;
+            font-family: SFD-Bold;
+            font-size: 32px;
+            color: #222;
+            line-height: 38px;
+            margin-bottom: 15px;
+        }
+    
+        .img-handbook {
+            margin: auto;
+            height: 250px;
+            width: 350px;
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-color: #eee;
+        }
+    }
+}

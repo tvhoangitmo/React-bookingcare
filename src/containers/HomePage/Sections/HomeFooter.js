@@ -22,7 +22,6 @@ class HomeFooter extends Component {
             </React.Fragment>
         );
     }
-
 }
 
 const mapStateToProps = state => {

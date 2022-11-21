@@ -8,6 +8,7 @@ import ManageSpecialty from '../containers/System/Specialty/ManageSpecialty';
 import ManageClinic from '../containers/System/Clinic/ManageClinic';
 // import RegisterPackageGroupOrAcc from '../containers/System/RegisterPackageGroupOrAcc';
 import Header from '../containers/Header/Header'
+import HandBook from '../containers/System/HandBook/HandBook';
 
 class System extends Component {
     render() {
@@ -19,12 +20,13 @@ class System extends Component {
                     <div className="system-list">
                         <Switch>
                             <Route path="/system/user-manage" component={UserManage} />
-                            <Route path="/system/user-redux" component={UserRedux} />
+                            <Route path="/system/user-actions" component={UserRedux} />
                             <Route path="/system/manage-doctor" component={ManageDoctor} />
                             <Route path="/system/manage-specialty" component={ManageSpecialty} />
                             <Route path="/system/manage-clinic" component={ManageClinic} />
+                            <Route path="/system/manage-handbook" component={HandBook} />
                             {/* <Route path="/system/register-package-group-or-account" component={RegisterPackageGroupOrAcc} /> */}
-                            <Route component={() => { return (<Redirect to={systemMenuPath} />) }} />
+                            {/* <Route component={() => { return (<Redirect to={systemMenuPath} />) }} /> */}
                         </Switch>
                     </div>
                 </div>

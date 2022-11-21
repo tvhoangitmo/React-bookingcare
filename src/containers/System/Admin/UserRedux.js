@@ -39,17 +39,6 @@ class UserRedux extends Component {
         this.props.getGenderStart()
         this.props.getPositionStart()
         this.props.getRoleStart()
-        // try {
-        //     let res = await getAllCodeService('gender')
-        //     if (res && res.errCode === 0) {
-        //         this.setState({
-        //             genderArr: res.data
-        //         })
-        //     }
-        //     // console.log('test res.data', res.data)
-        // } catch (e) {
-        //     console.log(e)
-        // }
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
@@ -74,8 +63,6 @@ class UserRedux extends Component {
                 role: arrRole && arrRole.length > 0 ? arrRole[0].keyMap : ''
             })
         }
-        // console.log("prevProps.listUsers", prevProps.listUsers.length)
-        // console.log('this.props.listUsers.length', this.props.listUsers.length)
         if (prevProps.listUsers !== this.props.listUsers) {
             let arrGender = this.props.genderRedux
             let arrPosition = this.props.positionRedux
@@ -96,7 +83,6 @@ class UserRedux extends Component {
 
             })
         }
-        // this.props.fetchUserRedux()
     }
 
     handleOnChangeImage = async (e) => {
@@ -106,7 +92,6 @@ class UserRedux extends Component {
             let base64 = await CommonUtils.getBase64(file)
             console.log('check base64: ', base64)
             let objUrl = URL.createObjectURL(file)
-            // console.log(objUrl)
             this.setState({
                 previewImgURL: objUrl,
                 avatar: base64
@@ -114,11 +99,6 @@ class UserRedux extends Component {
         }
 
     }
-    // openPreviewImage = () => {
-    //     this.setState({
-    //         isOpen: true
-    //     })
-    // }
 
     handleSaveUser = async () => {
         console.log('check state handleSaveUser: ', this.state)
@@ -211,17 +191,14 @@ class UserRedux extends Component {
         let positions = this.state.positionArr
         let roles = this.state.roleArr
         let language = this.props.language
-        //console.log(language)
         let isLoadingGender = this.props.isLoadingGender
         let isOpen = this.state.isOpen
         let previewImgURL = this.state.previewImgURL
         let { email, password, firstName, lastName, phoneNumber, address, gender, position, role, avatar } = this.state
-        // console.log('check gender: ', this.props.genderRedux)
-        // console.log('check position: ', this.props.positionRedux)
 
         return (
             <div className='user-redux-container'>
-                <div className='title'>Creat a new user</div>
+                <div className='title'><FormattedMessage id='menu.admin.crud-user' /></div>
                 <div>{isLoadingGender === true ? 'Loading genders' : ''}</div>
                 <div className="user-redux-body" >
                     <div className='container'>

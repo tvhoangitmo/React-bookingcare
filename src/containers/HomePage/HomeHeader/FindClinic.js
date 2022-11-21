@@ -7,6 +7,7 @@ import { FormattedMessage } from 'react-intl';
 import HomeHeader from '../HomeHeader';
 import { getAllClinic } from '../../../services/userService';
 import './FindClinic.scss'
+import './Path.scss'
 class FindClinic extends Component {
     constructor(props) {
         super(props)
@@ -30,6 +31,12 @@ class FindClinic extends Component {
         // console.log('view detail Clinic: ', specialty)
         if (this.props.history) {
             this.props.history.push(`/detail-clinic/${clinic.id}`)
+        }
+    }
+
+    goToPage = (path) => {
+        if (this.props.history) {
+            this.props.history.push(path)
         }
     }
 
@@ -75,6 +82,11 @@ class FindClinic extends Component {
                 <HomeHeader
                     inHomePage={false}
                 />
+                <div className='path'>
+                    <i className="fas fa-home" onClick={() => this.goToPage('/home')}><FormattedMessage id='path.home' /></i>
+                    <span> / </span>
+                    <span onClick={() => this.goToPage('/find-clinic')} ><FormattedMessage id='path.clinic' /></span>
+                </div>
                 <div className='search-clinic'>
                     <div className='col-12 form-group search'>
                         <input className='form-control input-search' type='search' placeholder='Find Clinic'

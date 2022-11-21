@@ -21,6 +21,9 @@ import DetailClinic from './Patient/Clinic/DetailClinic';
 import FindSpecialty from './HomePage/HomeHeader/FindSpecialty';
 import FindDoctor from './HomePage/HomeHeader/FindDoctor';
 import FindClinic from './HomePage/HomeHeader/FindClinic';
+import Support from './Patient/Support/Support';
+import HandBook from './Patient/HandBook/HandBook';
+import AllHandBook from './HomePage/HomeHeader/AllHandBook';
 
 class App extends Component {
 
@@ -57,12 +60,19 @@ class App extends Component {
 
                                     <Route path={path.HOMEPAGE} exact component={HomePage} />
                                     <Route path={path.DETAIL_DOCTOR} component={DetailDoctor} />
-                                    <Route path={path.VERIFY_EMAIL_BOOKING} component={VerifyEmail} />
-                                    <Route path={path.DETAIL_SPECIALTY} component={DetailSpecialty} />
-                                    <Route path={path.DETAIL_CLINIC} component={DetailClinic} />
-                                    <Route path={path.FIND_SPECIALTY} component={FindSpecialty} />
                                     <Route path={path.FIND_DOCTOR} component={FindDoctor} />
+                                    <Route path={path.VERIFY_EMAIL_BOOKING} component={VerifyEmail} />
+
+                                    <Route path={path.DETAIL_SPECIALTY} component={DetailSpecialty} />
+                                    <Route path={path.FIND_SPECIALTY} component={FindSpecialty} />
+
+                                    <Route path={path.DETAIL_CLINIC} component={DetailClinic} />
                                     <Route path={path.FIND_CLINIC} component={FindClinic} />
+
+                                    <Route path={path.HANDBOOK} component={HandBook} />
+                                    <Route path={path.ALL_HANDBOOK} component={AllHandBook} />
+
+                                    <Route path={path.SUPPORT} component={Support} />
                                 </Switch>
                             </CustomScrollbars>
                         </div>

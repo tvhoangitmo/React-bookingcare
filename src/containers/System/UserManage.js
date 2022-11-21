@@ -71,12 +71,9 @@ class UserManage extends Component {
         } catch (e) {
             console(e)
         }
-        // alert('Call me')
-        // console.log(data)
     }
 
     handleDeleteUser = async (user) => {
-        console.log('delete user: ', user)
         try {
             let response = await deleteUserService(user.id)
             console.log(response)

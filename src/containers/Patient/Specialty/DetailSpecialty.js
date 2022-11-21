@@ -32,7 +32,6 @@ class DetailSpecialty extends Component {
             })
 
             let resProvince = await getAllCodeService('PROVINCE')
-            console.log(resProvince)
             if (res && res.errCode === 0 && resProvince && resProvince.errCode === 0) {
                 let dataDoctor = res.data
                 let arrDoctor = []
@@ -100,10 +99,14 @@ class DetailSpecialty extends Component {
             isShowMoreDescription: !this.state.isShowMoreDescription
         })
     }
+    goToPage = (path) => {
+        if (this.props.history) {
+            this.props.history.push(path)
+        }
+    }
     render() {
         let { arrDoctor, detailSpecialty, listProvince, isShowMoreDescription } = this.state
         let { language } = this.props
-        console.log(listProvince)
         return (
             <div className='detail-specialty-container'>
                 <HomeHeader
@@ -111,6 +114,13 @@ class DetailSpecialty extends Component {
                     inHomePage={false}
                 />
                 <div className='detail-specialty-body'>
+                    <div className='path'>
+                        <i className="fas fa-home" onClick={() => this.goToPage('/home')}><FormattedMessage id='path.home' /></i>
+                        <span> / </span>
+                        <span onClick={() => this.goToPage('/find-specialty')} ><FormattedMessage id='path.specialty' /></span>
+                        <span> / </span>
+                        <span> {detailSpecialty.name}</span>
+                    </div>
                     <div className='intro'>
                         <div className='description-specialty'>
                             <div className={isShowMoreDescription ? 'long-description' : 'short-description'}>
@@ -130,7 +140,6 @@ class DetailSpecialty extends Component {
                                 }
                             </div>
                         </div>
-
                     </div>
 
                     <div className='specialty-doctor'>

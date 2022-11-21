@@ -5,31 +5,30 @@ import { Redirect } from 'react-router-dom';
 import { LANGUAGES } from '../../../utils';
 import { FormattedMessage } from 'react-intl';
 import HomeHeader from '../HomeHeader';
-import { getAllSpecialty } from '../../../services/userService';
-import './FindSpecialty.scss'
+import { getAllHandBook } from '../../../services/userService';
+import './AllHandBook.scss'
 import './Path.scss'
-class FindSpecialty extends Component {
+class AllHandBook extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            arrSpecialty: []
+            arrHandBook: []
         }
     }
     async componentDidMount() {
-        let res = await getAllSpecialty()
+        let res = await getAllHandBook()
         if (res && res.data) {
             this.setState({
-                arrSpecialty: res.data
+                arrHandBook: res.data
             })
         }
     }
 
-    handleViewDetailSpecialty = (specialty) => {
+    handleViewHandBook = (handbook) => {
         if (this.props.history) {
-            this.props.history.push(`/detail-specialty/${specialty.id}`)
+            this.props.history.push(`/handbook/${handbook.id}`)
         }
     }
-
     goToPage = (path) => {
         if (this.props.history) {
             this.props.history.push(path)
@@ -40,7 +39,7 @@ class FindSpecialty extends Component {
 
     }
     render() {
-        let { arrSpecialty } = this.state
+        let { arrHandBook } = this.state
         return (
             <>
                 <HomeHeader
@@ -49,17 +48,18 @@ class FindSpecialty extends Component {
                 <div className='path'>
                     <i className="fas fa-home" onClick={() => this.goToPage('/home')}><FormattedMessage id='path.home' /></i>
                     <span> / </span>
-                    <span onClick={() => this.goToPage('/find-clinic')} ><FormattedMessage id='path.clinic' /></span>
+                    <span onClick={() => this.goToPage('/all-handbook')} ><FormattedMessage id='path.handbook' /></span>
                 </div>
-                {arrSpecialty && arrSpecialty.length > 0 &&
-                    arrSpecialty.map((item, index) => {
+                <div className='handbook-title'><FormattedMessage id='homehandbook.handbook' /></div>
+                {arrHandBook && arrHandBook.length > 0 &&
+                    arrHandBook.map((item, index) => {
                         return (
-                            <div className='specialty-container' key={index} onClick={() => this.handleViewDetailSpecialty(item)}>
-                                <div className='specialty-image'
+                            <div className='allhandbook-container' key={index} onClick={() => this.handleViewHandBook(item)}>
+                                <div className='allhandbook-image'
                                     style={{ backgroundImage: `url(${item.image})` }}
                                 >
                                 </div>
-                                <div className='specialty-name'>{item.name}</div>
+                                <div className='allhandbook-name'>{item.title}</div>
                             </div>
                         )
                     })
@@ -80,4 +80,4 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(FindSpecialty);
+export default connect(mapStateToProps, mapDispatchToProps)(AllHandBook);
