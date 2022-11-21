@@ -1,6 +1,14 @@
 .doctor-detail-container {
     //height: 500px;
     //border: 1px solid red;
+    .path {
+        padding: 5px;
+        margin: 10px 150px;
+        color: #2cd3d3;
+        font-weight: bold;
+        font-family: SFD-Bold;
+        cursor: pointer;
+    }
     .intro-doctor {
         padding: 5px;
         margin: 10px 150px;

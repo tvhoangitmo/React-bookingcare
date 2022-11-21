@@ -1,46 +1,73 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-// import './MedicalFacility.scss'
 import Slider from 'react-slick';
 import { LANGUAGES } from '../../../utils';
 import { changeLanguageApp } from '../../../store/actions';
 import { FormattedMessage } from 'react-intl';
+import { getAllHandBook } from '../../../services/userService';
+import { withRouter } from 'react-router';
+import HomeHeader from '../HomeHeader';
 
 
 class HandBook extends Component {
-
+    constructor(props) {
+        super(props)
+        this.state = {
+            arrHandBook: []
+        }
+    }
     changeLanguage = (language) => {
         this.props.changeLanguageAppRedux(language)
     }
 
-    render() {
+    async componentDidMount() {
+        let res = await getAllHandBook()
+        if (res && res.data) {
+            this.setState({
+                arrHandBook: res.data
+            })
+        }
+    }
 
+    handleViewHandBook = (item) => {
+        if (this.props.history) {
+            this.props.history.push(`/handbook/${item.id}`)
+        }
+    }
+
+    showAllHandBook = () => {
+        if (this.props.history) {
+            this.props.history.push(`/all-handbook`)
+        }
+    }
+
+    render() {
+        let { arrHandBook } = this.state
         return (
             <React.Fragment>
-                <div className=' section-share section-medical-facility'>
+                <div className='section-share handbook'>
                     <div className='section-container'>
                         <div className='section-header'>
-                            <span className='title-section'>HandBook</span>
-                            <button className='btn-section'>All handbook</button>
+                            <span className='title-section'><FormattedMessage id='homehandbook.handbook' /></span>
+                            <button className='btn-section' onClick={() => this.showAllHandBook()}><FormattedMessage id='homehandbook.all-handbook' /></button>
                         </div>
-                        <div className='section-body'>
+                        <div className='section-handbook'>
                             <Slider {...this.props.settings}>
-                                <div className='section-customize'>
-                                    <div className='bg-image section-handbook'></div>
-                                    <div className='name-image'>HandBook</div>
-                                </div>
-                                <div className='section-customize'>
-                                    <div className='bg-image section-handbook'></div>
-                                    <div className='name-image'>HandBook</div>
-                                </div>
-                                <div className='section-customize'>
-                                    <div className='bg-image section-handbook'></div>
-                                    <div className='name-image'>HandBook</div>
-                                </div>
-                                <div className='section-customize'>
-                                    <div className='bg-image section-handbook'></div>
-                                    <div className='name-image'>HandBook</div>
-                                </div>
+                                {arrHandBook && arrHandBook.length > 0 &&
+                                    arrHandBook.map((item, index) => {
+                                        return (
+                                            <div className='section-customize'
+                                                key={index}
+                                                onClick={() => this.handleViewHandBook(item)}
+                                            >
+                                                <div className='bg-image'
+                                                    style={{ backgroundImage: `url(${item.image})` }}
+                                                >
+                                                </div>
+                                                <div className='name-image'>{item.title}</div>
+                                            </div>
+                                        )
+                                    })}
 
                             </Slider>
                         </div>
@@ -64,4 +91,4 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(HandBook);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(HandBook));

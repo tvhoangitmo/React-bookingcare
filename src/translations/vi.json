@@ -1,4 +1,11 @@
 {
+    "path": {
+        "home": "Trang chính",
+        "doctor": "Bác sĩ",
+        "specialty": "Chuyên khoa",
+        "clinic": "Phòng khám",
+        "handbook": "Cẩm nang"
+    },
     "homeheader": {
         "specialty": "Chuyên khoa",
         "searchdoctor": "Tìm bác sĩ theo chuyên khoa",
@@ -34,6 +41,10 @@
     "homedoctor": {
         "outstandingdoctor": "Bác sĩ nổi bật",
         "search": "Tìm kiếm"
+    },
+    "homehandbook": {
+        "handbook": "Cẩm nang",
+        "all-handbook": "Tất cả cẩm nang"
     },
     "menu": {
         "admin": {

@@ -1,4 +1,11 @@
 {
+    "path": {
+        "home": "Home page",
+        "doctor": "Doctor",
+        "specialty": "Medical specialty",
+        "clinic": "Clinics",
+        "handbook": "Handbook"
+    },
     "homeheader": {
         "specialty": "Medical specialty",
         "searchdoctor": "Find a doctor by specialty",
@@ -34,6 +41,10 @@
     "homedoctor": {
         "outstandingdoctor": "Outstanding Doctor",
         "search": "Search"
+    },
+    "homehandbook": {
+        "handbook": "Handbook",
+        "all-handbook": "All handbooks"
     },
     "menu": {
         "admin": {

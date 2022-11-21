@@ -22,11 +22,13 @@ class HomePage extends Component {
             speed: 500,
             slidesToShow: 4,
             slidesToScroll: 1,
-            // slickGoto: this.handeAfterChange()
-            // autoplay: true,
-            // speed: 5000,
-            // autoplaySpeed: 2000,
-            // cssEase: "linear"
+        };
+        let settingHandBook = {
+            dots: false,
+            infinite: false,
+            speed: 500,
+            slidesToShow: 2,
+            slidesToScroll: 1,
         };
         return (
             <div>
@@ -37,7 +39,7 @@ class HomePage extends Component {
                 <Specialty settings={settings} />
                 <MedicalFacility settings={settings} />
                 <OutstandingDoctor settings={settings} />
-                <HandBook settings={settings} />
+                <HandBook settings={settingHandBook} />
                 <About />
                 <HomeFooter />
             </div>

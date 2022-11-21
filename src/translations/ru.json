@@ -1,4 +1,11 @@
 {
+    "path": {
+        "home": "Главная страница",
+        "doctor": "Врач",
+        "specialty": "Медицинская специальность",
+        "clinic": "Клиники",
+        "handbook": "Справочник"
+    },
     "homeheader": {
         "specialty": "Медицинская специальность",
         "searchdoctor": "Найти врача по специальности",
@@ -34,6 +41,10 @@
     "homedoctor": {
         "outstandingdoctor": "Выдающийся доктор",
         "search": "Поиск"
+    },
+    "homehandbook": {
+        "handbook": "Справочник",
+        "all-handbook": "Все справочники"
     },
     "menu": {
         "admin": {

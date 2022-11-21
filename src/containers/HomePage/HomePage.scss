@@ -11,6 +11,9 @@
     &.section-medical-facility{
         background: #f5f5f5;
     }     
+    &.handbook {
+        background: #f5f5f5;
+    }
     .section-body {
         //border: 1px solid black;
 
@@ -53,9 +56,6 @@
                 background-color: #eee;
                 cursor: pointer;
             }
-            .section-handbook {
-                background-image: url('../../assets/handbook/noi-soi-tieu-hoa.jpg');
-            }
             .name-image {
                 //padding: 0 30px;
                 cursor: pointer;
@@ -81,6 +81,33 @@
                 text-align: justify;
                 font-style: italic;
                 padding: 15px;
+            }
+        }
+    }
+}
+
+.section-share {
+    .section-handbook {
+        .section-customize {
+            display: flex !important;
+            gap: 5px;
+
+            .bg-image {
+                //margin: auto;
+                height: 150px;
+                width: 278px;
+                background-position: center center;
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-color: #eee;
+                cursor: pointer;
+            }
+            .name-image {
+                //padding: 0 30px;
+                cursor: pointer;
+                font-weight: bold;
+                font-size: 16px;
+                margin-bottom: 15px;
             }
         }
     }

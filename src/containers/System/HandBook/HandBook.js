@@ -15,7 +15,7 @@ class HandBook extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            name: '',
+            title: '',
             imageBase64: '',
             descriptionMarkdown: '',
             descriptionHTML: ''
@@ -56,15 +56,15 @@ class HandBook extends Component {
 
     handleSavehandbook = async () => {
         let res = await createNewHandBook({
-            name: this.state.name,
-            image: this.state.imageBase64,
+            title: this.state.title,
+            imageBase64: this.state.imageBase64,
             descriptionHTML: this.state.descriptionHTML,
             descriptionMarkdown: this.state.descriptionMarkdown
         })
         if (res && res.errCode === 0) {
             toast.success("Create new handbook successfully")
             this.setState({
-                name: '',
+                title: '',
                 imageBase64: '',
                 descriptionMarkdown: '',
                 descriptionHTML: ''
@@ -80,12 +80,12 @@ class HandBook extends Component {
                 <div className='ms-title'><FormattedMessage id='menu.admin.manage-handbook' /></div>
                 <div className='add-new-handbook row'>
                     <div className='col-6 form-group'>
-                        <label>Name</label>
+                        <label>Title</label>
                         <input
                             className='form-control'
                             type='text'
-                            value={this.state.name}
-                            onChange={(event) => this.handleOnChangeInput(event, 'name')}
+                            value={this.state.title}
+                            onChange={(event) => this.handleOnChangeInput(event, 'title')}
                         />
                     </div>
                     <div className='col-6 form-group'>
