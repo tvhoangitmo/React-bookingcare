@@ -9,7 +9,7 @@
     "homeheader": {
         "specialty": "Chuyên khoa",
         "searchdoctor": "Tìm bác sĩ theo chuyên khoa",
-        "health-facility": "Cơ sở y tế",
+        "health-clinic": "Cơ sở y tế",
         "select-hospital": "Chọn bệnh viện, phòng khám",
         "doctor": "Bác sĩ",
         "select-doctor": "Chọn bác sĩ giỏi",
@@ -45,6 +45,14 @@
     "homehandbook": {
         "handbook": "Cẩm nang",
         "all-handbook": "Tất cả cẩm nang"
+    },
+    "footer": {
+        "address": "Địa chỉ: ",
+        "phone": "Số điện thoại: ",
+        "email": "Địa chỉ email: ",
+        "home-page": "Trang chủ",
+        "intro": "Giới thiệu",
+        "connection": "Kết nối với chúng tôi"
     },
     "menu": {
         "admin": {

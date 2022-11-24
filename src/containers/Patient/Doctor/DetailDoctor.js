@@ -3,6 +3,7 @@ import { Fragment } from 'react';
 import { connect } from "react-redux";
 import { Redirect } from 'react-router-dom';
 import HomeHeader from '../../HomePage/HomeHeader';
+import { Helmet } from 'react-helmet';
 import './DetailDoctor.scss'
 import { getDetailInforDoctor } from '../../../services/userService';
 import { LANGUAGES } from '../../../utils';
@@ -10,6 +11,8 @@ import HomeFooter from '../../HomePage/Sections/HomeFooter';
 import DoctorSchedule from './DoctorSchedule';
 import DoctorExtraInfor from './DoctorExtraInfor';
 import { FormattedMessage } from 'react-intl';
+import LikeAndShare from '../SocialPlugin/LikeAndShare';
+import Comment from '../SocialPlugin/Comment';
 
 class DetailDoctor extends Component {
     constructor(props) {
@@ -66,6 +69,9 @@ class DetailDoctor extends Component {
 
         return (
             <React.Fragment>
+                <Helmet>
+                    <title>{language === LANGUAGES.VI ? nameVi : (language === LANGUAGES.EN ? nameEn : nameRu)}</title>
+                </Helmet>
                 <HomeHeader
                     isShowBanner={false}
                     inHomePage={false}
@@ -93,6 +99,7 @@ class DetailDoctor extends Component {
                                         {detailDoctor.MarkDown.description}
                                     </span>}
                             </div>
+                            <LikeAndShare />
                         </div>
                     </div>
                     <div className='schedule-doctor'>
@@ -114,8 +121,8 @@ class DetailDoctor extends Component {
                             && <div dangerouslySetInnerHTML={{ __html: detailDoctor.MarkDown.contentHTML }}></div>
                         }
                     </div>
-                    <div className='comment-doctor'></div>
                 </div >
+                <Comment />
                 <HomeFooter />
             </React.Fragment >
         );

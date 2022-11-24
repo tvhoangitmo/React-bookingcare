@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Helmet } from 'react-helmet';
 import HomeHeader from './HomeHeader';
 import MedicalFacility from './Sections/MedicalFacility';
 import Specialty from './Sections/Specialty';
@@ -22,6 +23,7 @@ class HomePage extends Component {
             speed: 500,
             slidesToShow: 4,
             slidesToScroll: 1,
+            //prevArrow: '<button className="slide-arrow prev-arrow"></button>'
         };
         let settingHandBook = {
             dots: false,
@@ -32,6 +34,9 @@ class HomePage extends Component {
         };
         return (
             <div>
+                <Helmet>
+                    <title>Medbooking</title>
+                </Helmet>
                 <HomeHeader
                     isShowBanner={true}
                     inHomePage={true}

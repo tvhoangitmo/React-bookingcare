@@ -9,7 +9,7 @@
     "homeheader": {
         "specialty": "Medical specialty",
         "searchdoctor": "Find a doctor by specialty",
-        "health-facility": "Health facilities",
+        "health-clinic": "Health clinics",
         "select-hospital": "Choose a hospital, clinic",
         "doctor": "Doctor",
         "select-doctor": "Choose a good doctor",
@@ -45,6 +45,14 @@
     "homehandbook": {
         "handbook": "Handbook",
         "all-handbook": "All handbooks"
+    },
+    "footer": {
+        "address": "Address: ",
+        "phone": "Phone number: ",
+        "email": "Email address: ",
+        "home-page": "Home page",
+        "intro": "Introduction",
+        "connection": "Connect with us"
     },
     "menu": {
         "admin": {

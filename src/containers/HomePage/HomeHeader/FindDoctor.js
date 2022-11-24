@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { Redirect } from 'react-router-dom';
 import { LANGUAGES } from '../../../utils';
 import { FormattedMessage } from 'react-intl';
+import { Helmet } from 'react-helmet';
 import HomeHeader from '../HomeHeader';
 import { getAllDoctor } from '../../../services/userService';
 import './FindDoctor.scss'
@@ -87,6 +88,9 @@ class FindDoctor extends Component {
         let { language } = this.props
         return (
             <>
+                <Helmet>
+                    <title>Doctors</title>
+                </Helmet>
                 <HomeHeader
                     inHomePage={false}
                 />

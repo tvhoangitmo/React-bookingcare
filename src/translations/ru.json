@@ -9,7 +9,7 @@
     "homeheader": {
         "specialty": "Медицинская специальность",
         "searchdoctor": "Найти врача по специальности",
-        "health-facility": "Медицинские учреждения",
+        "health-clinic": "Медицинские учреждения",
         "select-hospital": "Выбрать больницу, клинику",
         "doctor": "Врач",
         "select-doctor": "Выбирайте хорошего врача",
@@ -45,6 +45,14 @@
     "homehandbook": {
         "handbook": "Справочник",
         "all-handbook": "Все справочники"
+    },
+    "footer": {
+        "address": "Адрес: ",
+        "phone": "Номер телефона: ",
+        "email": "Адрес электронной почты: ",
+        "home-page": "Главная страница",
+        "intro": "Введение",
+        "connection": "Свяжитесь с нами"
     },
     "menu": {
         "admin": {

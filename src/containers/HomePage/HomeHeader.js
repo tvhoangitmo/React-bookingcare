@@ -39,9 +39,7 @@ class HomeHeader extends Component {
     }
 
     render() {
-        //console.log('check props', this.props)
         let language = this.props.language
-        //console.log('check laguage: ', language, LANGUAGES.VI)
         return (
             <React.Fragment>
                 <div className='home-header-container'>
@@ -73,7 +71,7 @@ class HomeHeader extends Component {
                                     onClick={() => this.handleFindSection(path.FIND_CLINIC)}
                                 >
                                     <b>
-                                        <FormattedMessage id='homeheader.health-facility' />
+                                        <FormattedMessage id='homeheader.health-clinic' />
                                     </b>
                                 </div>
                                 <div className='subs-title'><FormattedMessage id='homeheader.select-hospital' /></div>

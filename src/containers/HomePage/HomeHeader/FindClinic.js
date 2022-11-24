@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { Redirect } from 'react-router-dom';
 import { LANGUAGES } from '../../../utils';
 import { FormattedMessage } from 'react-intl';
+import { Helmet } from 'react-helmet';
 import HomeHeader from '../HomeHeader';
 import { getAllClinic } from '../../../services/userService';
 import './FindClinic.scss'
@@ -79,6 +80,9 @@ class FindClinic extends Component {
         let { arrClinic } = this.state
         return (
             <>
+                <Helmet>
+                    <title>Clinics</title>
+                </Helmet>
                 <HomeHeader
                     inHomePage={false}
                 />

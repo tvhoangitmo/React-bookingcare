@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { Redirect } from 'react-router-dom';
 import { LANGUAGES } from '../../../utils';
 import { FormattedMessage } from 'react-intl';
+import { Helmet } from 'react-helmet';
 import HomeHeader from '../HomeHeader';
 import { getAllSpecialty } from '../../../services/userService';
 import './FindSpecialty.scss'
@@ -43,13 +44,16 @@ class FindSpecialty extends Component {
         let { arrSpecialty } = this.state
         return (
             <>
+                <Helmet>
+                    <title>Specialties</title>
+                </Helmet>
                 <HomeHeader
                     inHomePage={false}
                 />
                 <div className='path'>
                     <i className="fas fa-home" onClick={() => this.goToPage('/home')}><FormattedMessage id='path.home' /></i>
                     <span> / </span>
-                    <span onClick={() => this.goToPage('/find-clinic')} ><FormattedMessage id='path.clinic' /></span>
+                    <span onClick={() => this.goToPage('/find-specialty')} ><FormattedMessage id='path.specialty' /></span>
                 </div>
                 {arrSpecialty && arrSpecialty.length > 0 &&
                     arrSpecialty.map((item, index) => {

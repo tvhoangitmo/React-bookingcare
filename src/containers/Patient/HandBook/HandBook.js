@@ -3,11 +3,13 @@ import { Fragment } from 'react';
 import { connect } from "react-redux";
 import { Redirect } from 'react-router-dom';
 import { LANGUAGES } from '../../../utils';
+import { Helmet } from 'react-helmet';
 import { FormattedMessage } from 'react-intl';
 import HomeHeader from '../../HomePage/HomeHeader';
 import { getHandBookById } from '../../../services/userService';
 import './HandBook.scss'
 import HomeFooter from '../../HomePage/Sections/HomeFooter';
+import LikeAndShare from '../SocialPlugin/LikeAndShare';
 
 class HandBook extends Component {
     constructor(props) {
@@ -40,6 +42,9 @@ class HandBook extends Component {
         console.log(handbook)
         return (
             <>
+                <Helmet>
+                    <title>{handbook.title}</title>
+                </Helmet>
                 <HomeHeader
                     inHomePage={false}
                 />
@@ -61,7 +66,6 @@ class HandBook extends Component {
                         </div>
                     </div>
                 </div>
-
                 <HomeFooter />
             </>
 

@@ -3,6 +3,7 @@ import { Fragment } from 'react';
 import { connect } from "react-redux";
 import { Redirect } from 'react-router-dom';
 import { LANGUAGES } from '../../../utils';
+import { Helmet } from 'react-helmet';
 import { FormattedMessage } from 'react-intl';
 import HomeHeader from '../HomeHeader';
 import { getAllHandBook } from '../../../services/userService';
@@ -42,6 +43,9 @@ class AllHandBook extends Component {
         let { arrHandBook } = this.state
         return (
             <>
+                <Helmet>
+                    <title>Handbook</title>
+                </Helmet>
                 <HomeHeader
                     inHomePage={false}
                 />

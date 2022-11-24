@@ -120,7 +120,6 @@ class DoctorSchedule extends Component {
         let allTime = this.state.allTime
         let language = this.props.language
         let { bookingDoctorInDate } = this.state
-        console.log(bookingDoctorInDate, allTime)
         return (
             <React.Fragment>
                 <div className='doctor-schedule-container'>

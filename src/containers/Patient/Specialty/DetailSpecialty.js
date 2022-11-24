@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { Redirect } from 'react-router-dom';
 import { LANGUAGES } from '../../../utils';
 import { FormattedMessage } from 'react-intl';
+import { Helmet } from 'react-helmet';
 import HomeHeader from '../../HomePage/HomeHeader';
 import DoctorSchedule from '../Doctor/DoctorSchedule';
 import DoctorExtraInfor from '../Doctor/DoctorExtraInfor';
@@ -109,6 +110,9 @@ class DetailSpecialty extends Component {
         let { language } = this.props
         return (
             <div className='detail-specialty-container'>
+                <Helmet>
+                    <title>{detailSpecialty.name}</title>
+                </Helmet>
                 <HomeHeader
                     isShowBanner={false}
                     inHomePage={false}

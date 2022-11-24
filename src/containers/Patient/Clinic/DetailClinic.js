@@ -3,6 +3,7 @@ import { Fragment } from 'react';
 import { connect } from "react-redux";
 import { Redirect } from 'react-router-dom';
 import { LANGUAGES } from '../../../utils';
+import { Helmet } from 'react-helmet';
 import { FormattedMessage } from 'react-intl';
 import HomeHeader from '../../HomePage/HomeHeader';
 import HomeFooter from '../../HomePage/Sections/HomeFooter';
@@ -64,77 +65,82 @@ class DetailClinic extends Component {
     render() {
         let { arrDoctor, detailClinic, isShowMoreDescription } = this.state
         return (
-            <div className='detail-clinic-container'>
-                <HomeHeader
-                    isShowBanner={false}
-                    inHomePage={false}
-                />
-                <div className='path'>
-                    <i className="fas fa-home" onClick={() => this.goToPage('/home')}><FormattedMessage id='path.home' /></i>
-                    <span> / </span>
-                    <span onClick={() => this.goToPage('/find-clinic')} ><FormattedMessage id='path.clinic' /></span>
-                    <span> / </span>
-                    <span> {detailClinic.name}</span>
-                </div>
-                <div className='title-clinic'>{detailClinic.name}</div>
-                <div className='detail-clinic-body'>
-                    <div className='intro'>
-                        <div className='description-clinic'>
-                            <div className={isShowMoreDescription ? 'long-description' : 'short-description'}>
-                                {detailClinic && detailClinic.descriptionHTML
-                                    && <div dangerouslySetInnerHTML={{ __html: detailClinic.descriptionHTML }}></div>
-                                }
-                            </div>
-                            <div className='more-description' onClick={() => this.handleShowMoreDescription()}>
-                                {isShowMoreDescription ?
-                                    <>
-                                        <FormattedMessage id='homefacility.hide' />
-                                    </>
-                                    :
-                                    <>
-                                        <FormattedMessage id='homefacility.more-description' />
-                                    </>
-                                }
+            <>
+                <Helmet>
+                    <title>{detailClinic.name}</title>
+                </Helmet>
+                <div className='detail-clinic-container'>
+                    <HomeHeader
+                        isShowBanner={false}
+                        inHomePage={false}
+                    />
+                    <div className='path'>
+                        <i className="fas fa-home" onClick={() => this.goToPage('/home')}><FormattedMessage id='path.home' /></i>
+                        <span> / </span>
+                        <span onClick={() => this.goToPage('/find-clinic')} ><FormattedMessage id='path.clinic' /></span>
+                        <span> / </span>
+                        <span> {detailClinic.name}</span>
+                    </div>
+                    <div className='title-clinic'>{detailClinic.name}</div>
+                    <div className='detail-clinic-body'>
+                        <div className='intro'>
+                            <div className='description-clinic'>
+                                <div className={isShowMoreDescription ? 'long-description' : 'short-description'}>
+                                    {detailClinic && detailClinic.descriptionHTML
+                                        && <div dangerouslySetInnerHTML={{ __html: detailClinic.descriptionHTML }}></div>
+                                    }
+                                </div>
+                                <div className='more-description' onClick={() => this.handleShowMoreDescription()}>
+                                    {isShowMoreDescription ?
+                                        <>
+                                            <FormattedMessage id='homefacility.hide' />
+                                        </>
+                                        :
+                                        <>
+                                            <FormattedMessage id='homefacility.more-description' />
+                                        </>
+                                    }
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div className='clinic-doctor'>
-                        <div className='list-doctor'>Danh sach bac si</div>
-                        {arrDoctor && arrDoctor.length > 0 && arrDoctor.map((item, index) => {
-                            return (
-                                <div className='each-doctor' key={index}>
-                                    <div className='dt-content-left'>
-                                        <ProfileDoctor
-                                            doctorId={item}
-                                            //dataTime={this.props.dataTime}
-                                            isShowProfileDoctor={true}
-                                            isShowMore={true}
-                                        />
-                                    </div>
-                                    <div className='dt-content-right'>
-                                        <div className='doctor-schedule'>
-                                            <DoctorSchedule
+                        <div className='clinic-doctor'>
+                            <div className='list-doctor'>Danh sach bac si</div>
+                            {arrDoctor && arrDoctor.length > 0 && arrDoctor.map((item, index) => {
+                                return (
+                                    <div className='each-doctor' key={index}>
+                                        <div className='dt-content-left'>
+                                            <ProfileDoctor
                                                 doctorId={item}
+                                                //dataTime={this.props.dataTime}
+                                                isShowProfileDoctor={true}
+                                                isShowMore={true}
                                             />
                                         </div>
+                                        <div className='dt-content-right'>
+                                            <div className='doctor-schedule'>
+                                                <DoctorSchedule
+                                                    doctorId={item}
+                                                />
+                                            </div>
 
-                                        <div className='doctor-extra-infor'>
-                                            <DoctorExtraInfor
-                                                doctorId={item}
-                                            />
+                                            <div className='doctor-extra-infor'>
+                                                <DoctorExtraInfor
+                                                    doctorId={item}
+                                                />
+                                            </div>
                                         </div>
-                                    </div>
 
-                                </div>
+                                    </div>
+                                )
+                            }
                             )
-                        }
-                        )
-                        }
+                            }
+                        </div>
                     </div>
+                    <HomeFooter />
                 </div>
-                <HomeFooter />
-            </div>
+            </>
         )
     }
 }

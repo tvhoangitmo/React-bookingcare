@@ -1,6 +1,5 @@
 .section-share {
     &.section-about {
-        //border: 1px solid red;
         height: 500px !important;
         margin: 0 100px;
 
@@ -15,11 +14,8 @@
         background: #f5f5f5;
     }
     .section-body {
-        //border: 1px solid black;
-
         .section-customize {
             // cursor: pointer;
-            //image doctor
             .customize-border {
                 border: 1px solid rgba(153, 153, 153, 0.911);
                 height: 185px;
@@ -93,7 +89,6 @@
             gap: 5px;
 
             .bg-image {
-                //margin: auto;
                 height: 150px;
                 width: 278px;
                 background-position: center center;
@@ -103,7 +98,6 @@
                 cursor: pointer;
             }
             .name-image {
-                //padding: 0 30px;
                 cursor: pointer;
                 font-weight: bold;
                 font-size: 16px;
@@ -126,8 +120,6 @@
             height: 60px;
             margin-bottom: 20px;
             padding-top: 20px;
-            //justify-content: space-between;
-            //margin: 0 80px;
 
             .title-section {
                 font-size: 24px;
@@ -154,48 +146,31 @@
     }
 }
 
-.home-footer {
-    text-align: center;
-    padding-top: 10px;
-    text-decoration: unset;
-}
-
-
-
 //reset slick slider css
 .slick-prev {
-    // position: relative !important;
-    //left: -10 !important;
     margin-left: 30px;
     z-index: 10 !important;
     height: 48px !important;
     width: 44px !important;
-
-    background: #fff !important;
-    border: 2px solid #d7d7d7 !important;
-
-    &:hover {
-        background: #d7d7d7 !important;
-    }
+    border: none !important;
 }
 
 .slick-next {
-    //right: -10 !important;
     margin-right: 30px;
     z-index: 10 !important;
     height: 48px !important;
     width: 44px !important;
-    background: #fff !important;
-    border: 2px solid #d7d7d7 !important;
-
-    &:hover {
-        background: #d7d7d7 !important;
-    }
+    border: none !important;
 }
 
 .slick-prev:before, .slick-next:before {
-    font-family: FontAweSome !important;
-    color: red !important;
+    font-style: normal;
+    font-weight: 400;
+    background: #fff;
+    border: 2px solid #d7d7d7;
+    padding: 10px;
+    text-align: center;
+    color: #959595 !important;
 }
 .slick-disabled {
     display: none !important;
@@ -203,3 +178,64 @@
 // .slick-slider {
 //     padding: 0 50px;
 // }
+
+
+.footer-container {
+    background-color: #ddd;
+    
+    display: flex;
+    flex-direction: column;
+    .up {
+        padding: 10px 100px 0 100px;
+        span {
+            font-size: 25px;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+    }
+    .center {
+        padding: 10px 100px 0 100px;
+        margin-top: 10px;
+        display: flex;
+        .content-left {
+            width: 50%;
+        }
+        .content-center {
+            width: 25%;
+            color: #45c3d2;
+            .home-page {
+                cursor: pointer;
+                &:hover {
+                    color: #0090a0;
+                }
+            }
+            .introduce {
+                cursor: pointer;
+                &:hover {
+                    color: #0090a0;
+                }
+            }
+        }
+        .content-right {
+            width: 25%;
+            .connection {
+                text-align: center;
+            }
+            .fb-insta-vk {
+                font-size: 30px;
+                display: flex;
+                gap: 25px;
+                justify-content: center;
+                i {
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+    .down {
+        color: white;
+        padding: 10px 100px;
+        margin-top: 10px;
+        background-color: rgb(161, 161, 161);
+    }
+}
