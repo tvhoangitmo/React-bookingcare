@@ -75,7 +75,7 @@ class DetailClinic extends Component {
                         inHomePage={false}
                     />
                     <div className='path'>
-                        <i className="fas fa-home" onClick={() => this.goToPage('/home')}><FormattedMessage id='path.home' /></i>
+                        <i className="fas fa-home" onClick={() => this.goToPage('/home')}></i>
                         <span> / </span>
                         <span onClick={() => this.goToPage('/find-clinic')} ><FormattedMessage id='path.clinic' /></span>
                         <span> / </span>

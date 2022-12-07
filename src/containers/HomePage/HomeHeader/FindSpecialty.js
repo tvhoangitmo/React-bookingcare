@@ -51,7 +51,7 @@ class FindSpecialty extends Component {
                     inHomePage={false}
                 />
                 <div className='path'>
-                    <i className="fas fa-home" onClick={() => this.goToPage('/home')}><FormattedMessage id='path.home' /></i>
+                    <i className="fas fa-home" onClick={() => this.goToPage('/home')}></i>
                     <span> / </span>
                     <span onClick={() => this.goToPage('/find-specialty')} ><FormattedMessage id='path.specialty' /></span>
                 </div>

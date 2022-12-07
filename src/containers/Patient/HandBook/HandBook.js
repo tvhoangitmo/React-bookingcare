@@ -50,7 +50,7 @@ class HandBook extends Component {
                 />
                 <div className='pg-container'>
                     <div className='path'>
-                        <i className="fas fa-home" onClick={() => this.goToPage('/home')}><FormattedMessage id='path.home' /></i>
+                        <i className="fas fa-home" onClick={() => this.goToPage('/home')}></i>
                         <span> / </span>
                         <span onClick={() => this.goToPage('/all-handbook')} ><FormattedMessage id='path.handbook' /></span>
                         <span> / </span>

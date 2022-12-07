@@ -28,7 +28,7 @@ class About extends Component {
                                 title="Что такое web-программирование? ДЛЯ НОВИЧКОВ / Про IT / Geekbrains"
                                 frameBorder="0"
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                allowFullscreen>
+                                allowFullScreen>
                             </iframe>
                         </div>
                         <div className='content-right'>

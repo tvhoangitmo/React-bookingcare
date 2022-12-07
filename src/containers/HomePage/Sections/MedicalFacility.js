@@ -51,7 +51,7 @@ class MedicalFacility extends Component {
                         <div className='section-header'>
                             <span className='title-section'><FormattedMessage id='homefacility.outstanding' /></span>
                             <button className='btn-section'
-                                onClick={() => this.handleFindClinic()}
+                                onClick={this.handleFindClinic}
                             >
                                 <FormattedMessage id='homefacility.search' />
                             </button>

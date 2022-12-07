@@ -50,7 +50,7 @@ class AllHandBook extends Component {
                     inHomePage={false}
                 />
                 <div className='path'>
-                    <i className="fas fa-home" onClick={() => this.goToPage('/home')}><FormattedMessage id='path.home' /></i>
+                    <i className="fas fa-home" onClick={() => this.goToPage('/home')}></i>
                     <span> / </span>
                     <span onClick={() => this.goToPage('/all-handbook')} ><FormattedMessage id='path.handbook' /></span>
                 </div>

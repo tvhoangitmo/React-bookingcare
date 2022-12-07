@@ -48,7 +48,6 @@ class HomeHeader extends Component {
 
                             {this.props.inHomePage === true ?
                                 <>
-                                    <i className="fas fa-bars"></i>
                                     <img className='header-logo' src={logo} alt="BigCo Inc. logo" onClick={() => this.returnToHome()} />
                                 </>
                                 :

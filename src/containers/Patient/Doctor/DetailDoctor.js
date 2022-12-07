@@ -78,7 +78,7 @@ class DetailDoctor extends Component {
                 />
                 <div className='doctor-detail-container'>
                     <div className='path'>
-                        <i className="fas fa-home" onClick={() => this.goToPage('/home')}><FormattedMessage id='path.home' /></i>
+                        <i className="fas fa-home" onClick={() => this.goToPage('/home')}></i>
                         <span> / </span>
                         <span onClick={() => this.goToPage('/find-doctor')} ><FormattedMessage id='path.doctor' /></span>
 
@@ -99,7 +99,7 @@ class DetailDoctor extends Component {
                                         {detailDoctor.MarkDown.description}
                                     </span>}
                             </div>
-                            <LikeAndShare />
+                            {/* <LikeAndShare /> */}
                         </div>
                     </div>
                     <div className='schedule-doctor'>
@@ -122,7 +122,7 @@ class DetailDoctor extends Component {
                         }
                     </div>
                 </div >
-                <Comment />
+                {/* <Comment /> */}
                 <HomeFooter />
             </React.Fragment >
         );
