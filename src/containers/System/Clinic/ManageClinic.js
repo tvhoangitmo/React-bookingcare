@@ -82,10 +82,10 @@ class ManageClinic extends Component {
     render() {
         return (
             <div className='manage-clinic-container'>
-                <div className='ms-title'>Quản lý phòng khám</div>
+                <div className='ms-title'>Управление клиники</div>
                 <div className='add-new-clinic row'>
                     <div className='col-6 form-group'>
-                        <label>Name</label>
+                        <label>Назвоние</label>
                         <input
                             className='form-control'
                             type='text'
@@ -94,7 +94,7 @@ class ManageClinic extends Component {
                         />
                     </div>
                     <div className='col-6 form-group'>
-                        <label>Picture</label>
+                        <label>Фото</label>
                         <input
                             className='form-control-file'
                             type='file'
@@ -102,7 +102,7 @@ class ManageClinic extends Component {
                         />
                     </div>
                     <div className='col-6 form-group'>
-                        <label>Address</label>
+                        <label>Адрес</label>
                         <input
                             className='form-control'
                             type='text'
@@ -122,7 +122,7 @@ class ManageClinic extends Component {
                         <button className='btn-save-clinic'
                             onClick={() => this.handleSaveSpecialty()}
                         >
-                            Save
+                            Сохранить
                         </button>
                     </div>
                 </div>

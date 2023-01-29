@@ -73,6 +73,7 @@ class ManagePatient extends Component {
     }
 
     sendRemedy = async (data) => {
+        console.log(data)
         let { dataModal } = this.state
         this.setState({
             isShowLoading: true
@@ -80,6 +81,7 @@ class ManagePatient extends Component {
         let res = await postSendRemery({
             email: data.email,
             imageBase64: data.imageBase64,
+            diagnosis: data.diagnosis,
             doctorId: dataModal.doctorId,
             patientId: dataModal.patientId,
             date: dataModal.date,
@@ -87,7 +89,7 @@ class ManagePatient extends Component {
             language: this.props.language,
             namePatient: dataModal.namePatient,
             firstNameDoctor: dataModal.firstNameDoctor,
-            lastNameDoctor: dataModal.lastNameDoctor
+            lastNameDoctor: dataModal.lastNameDoctorб
         })
         if (res && res.errCode === 0) {
             this.setState({
@@ -136,12 +138,12 @@ class ManagePatient extends Component {
                                 <table style={{ width: '100%' }}>
                                     <tbody>
                                         <tr>
-                                            <th>STT</th>
-                                            <th>Thoi gian</th>
-                                            <th>Ho va ten</th>
-                                            <th>Gioi tinh</th>
-                                            <th>Dia chi</th>
-                                            <th>Actions</th>
+                                            <th><FormattedMessage id="manage-patient.stt" /></th>
+                                            <th><FormattedMessage id="manage-patient.time" /></th>
+                                            <th><FormattedMessage id="manage-patient.name" /></th>
+                                            <th><FormattedMessage id="manage-patient.gender" /></th>
+                                            <th><FormattedMessage id="manage-patient.address" /></th>
+                                            <th><FormattedMessage id="manage-patient.actions" /></th>
                                         </tr>
                                         {dataPatient && dataPatient.length > 0 ?
                                             dataPatient.map((item, index) => {
@@ -155,7 +157,11 @@ class ManagePatient extends Component {
                                                         <td>{gender}</td>
                                                         <td>{item.User.address}</td>
                                                         <td>
-                                                            <button className='btn-confirm-booking' onClick={() => this.handleConfirmBooking(item)}>Xac nhan</button>
+                                                            <button
+                                                                className='btn-confirm-booking'
+                                                                onClick={() => this.handleConfirmBooking(item)}>
+                                                                <FormattedMessage id="manage-patient.confirm" />
+                                                            </button>
                                                         </td>
                                                     </tr>
                                                 )

@@ -168,7 +168,6 @@ class UserRedux extends Component {
             imageBase64 = new Buffer(user.image, 'base64').toString('binary')
         }
 
-        console.log('check user from parent ', user)
         this.setState({
             email: user.email,
             password: '******',

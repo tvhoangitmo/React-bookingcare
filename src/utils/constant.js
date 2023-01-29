@@ -14,6 +14,7 @@ export const path = {
     FIND_CLINIC: '/find-clinic',
     ALL_HANDBOOK: '/all-handbook',
     SUPPORT: '/support',
+    HISTORY: '/history'
 };
 
 export const LANGUAGES = {

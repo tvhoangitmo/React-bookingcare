@@ -84,8 +84,12 @@ class HomeHeader extends Component {
                                 <div className='subs-title'><FormattedMessage id='homeheader.select-doctor' /></div>
                             </div>
                             <div className='child-content'>
-                                <div><b><FormattedMessage id='homeheader.package' /></b></div>
-                                <div className='subs-title'><FormattedMessage id='homeheader.general-health' /></div>
+                                <div
+                                    onClick={() => this.handleFindSection(path.ALL_HANDBOOK)}
+                                >
+                                    <b><FormattedMessage id='homeheader.handbook' /></b>
+                                </div>
+                                <div className='subs-title'><FormattedMessage id='homeheader.handbook' /></div>
                             </div>
                         </div>
 
@@ -95,6 +99,16 @@ class HomeHeader extends Component {
                             >
                                 <i className="fas fa-question-circle"></i>
                                 <FormattedMessage id='homeheader.support' />
+                            </div>
+                            <div className='login'
+                                onClick={() => this.handleFindSection(path.LOGIN)}>
+                                <i className="fas fa-sign-in-alt"></i>
+                                <FormattedMessage id='homeheader.login' />
+                            </div>
+                            <div className='login'
+                                onClick={() => this.handleFindSection(path.HISTORY)}>
+                                <i class="fas fa-search"></i>
+                                <FormattedMessage id='homeheader.search' />
                             </div>
                             <div className={language === LANGUAGES.VI ? 'language-vi active' : 'language-vi'}><span onClick={() => this.changeLanguage(LANGUAGES.VI)}>VN</span></div>
                             <div className={language === LANGUAGES.EN ? 'language-en active' : 'language-en'}><span onClick={() => this.changeLanguage(LANGUAGES.EN)}>EN</span></div>

@@ -83,7 +83,7 @@ class ManageSpecialty extends Component {
                 <div className='ms-title'><FormattedMessage id='menu.admin.manage-specialty' /></div>
                 <div className='add-new-specialty row'>
                     <div className='col-6 form-group'>
-                        <label>Name</label>
+                        <label>Название</label>
                         <input
                             className='form-control'
                             type='text'
@@ -92,7 +92,7 @@ class ManageSpecialty extends Component {
                         />
                     </div>
                     <div className='col-6 form-group'>
-                        <label>Picture</label>
+                        <label>Фото</label>
                         <input
                             className='form-control-file'
                             type='file'
@@ -111,7 +111,7 @@ class ManageSpecialty extends Component {
                         <button className='btn-save-specialty'
                             onClick={() => this.handleSaveSpecialty()}
                         >
-                            Save
+                            Сохранить
                         </button>
                     </div>
                 </div>

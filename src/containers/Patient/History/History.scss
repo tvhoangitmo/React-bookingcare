@@ -1,0 +1,30 @@
+.history-container {
+    min-height: 500px;
+    padding: 10px 50px;
+    .tutorial {
+        margin-left: 15px;
+    }
+    .notification {
+        margin-left: 15px;
+    }
+    .btn-history {
+        margin-left: 15px;
+    }
+    .table-manage-patient{
+        margin-top: 10px;
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+
+            .btn-confirm-booking {
+                border: none;
+                outline: none;
+                background-color: aqua;
+            }
+        }
+        th, td {
+            padding: 5px;
+            text-align: left;
+        }
+    }
+}

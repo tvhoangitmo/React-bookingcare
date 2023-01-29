@@ -80,7 +80,7 @@ class HandBook extends Component {
                 <div className='ms-title'><FormattedMessage id='menu.admin.manage-handbook' /></div>
                 <div className='add-new-handbook row'>
                     <div className='col-6 form-group'>
-                        <label>Title</label>
+                        <label>Название</label>
                         <input
                             className='form-control'
                             type='text'
@@ -89,7 +89,7 @@ class HandBook extends Component {
                         />
                     </div>
                     <div className='col-6 form-group'>
-                        <label>Picture</label>
+                        <label>Фото</label>
                         <input
                             className='form-control-file'
                             type='file'
@@ -108,7 +108,7 @@ class HandBook extends Component {
                         <button className='btn-save-handbook'
                             onClick={() => this.handleSavehandbook()}
                         >
-                            Save
+                            Сохранить
                         </button>
                     </div>
                 </div>

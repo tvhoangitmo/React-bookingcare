@@ -112,6 +112,10 @@ const getAllHandBook = () => {
 const getHandBookById = (id) => {
     return axios.get(`/api/get-handbook-by-id?id=${id}`)
 }
+
+const getHistory = (email) => {
+    return axios.get(`/api/get-history?email=${email}`)
+}
 export {
     handleLoginApi,
     getAllUsers,
@@ -139,5 +143,6 @@ export {
     postSendRemery,
     createNewHandBook,
     getAllHandBook,
-    getHandBookById
+    getHandBookById,
+    getHistory
 }

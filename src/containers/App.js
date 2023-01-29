@@ -24,7 +24,7 @@ import FindClinic from './HomePage/HomeHeader/FindClinic';
 import Support from './Patient/Support/Support';
 import HandBook from './Patient/HandBook/HandBook';
 import AllHandBook from './HomePage/HomeHeader/AllHandBook';
-
+import History from './Patient/History/History';
 class App extends Component {
 
     handlePersistorState = () => {
@@ -73,6 +73,8 @@ class App extends Component {
                                     <Route path={path.ALL_HANDBOOK} component={AllHandBook} />
 
                                     <Route path={path.SUPPORT} component={Support} />
+
+                                    <Route path={path.HISTORY} component={History} />
                                 </Switch>
                             </CustomScrollbars>
                         </div>

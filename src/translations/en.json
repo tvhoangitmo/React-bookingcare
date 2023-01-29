@@ -16,7 +16,10 @@
         "package": "Checkup package",
         "general-health": "General health check",
         "support": "Support",
-        "welcome": "Welcome, "
+        "welcome": "Welcome, ",
+        "login": "Login",
+        "handbook": "Handbook",
+        "search": "Medical history"
     },
     "homebanner": {
         "title1": "MEDICAL PLATFORM",
@@ -97,7 +100,14 @@
     },
     "manage-patient": {
         "title": "Manage medical examination patients",
-        "choose-date": "Select examination date"
+        "choose-date": "Select examination date",
+        "stt": "STT",
+        "time": "Time",
+        "name": "First and last name",
+        "gender": "Gender",
+        "address": "Address",
+        "actions": "Actions",
+        "confirm": "Confirm"
     },
     "patient": {
         "detail-doctor": {
@@ -150,5 +160,18 @@
             "specialty": "Select a specialty",
             "clinic": "Select clinic"
         }
+    },
+    "history": {
+        "title": "View medical history",
+        "tutorial": "Instructions: To look up medical history please enter email",
+        "failed": "Email is incorrect",
+        "true": "Here is your medical history",
+        "email": "Email address",
+        "confirm": "Confirm",
+        "stt": "STT",
+        "namedoctor": "Doctor's name",
+        "date": "Date of examination",
+        "time": "Time",
+        "diagnosis": "The doctor's diagnosis"
     }
 }

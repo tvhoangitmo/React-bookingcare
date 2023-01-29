@@ -16,7 +16,10 @@
         "package": "Gói khám",
         "general-health": "Khám sức khỏe tổng quát",
         "support": "Hỗ trợ",
-        "welcome": "Xin chào, "
+        "welcome": "Xin chào, ",
+        "login": "Đăng nhập",
+        "handbook": "Cẩm nang",
+        "search": "Lịch sử"
     },
     "homebanner": {
         "title1": "NỀN TẢNG Y TẾ",
@@ -97,7 +100,14 @@
     },
     "manage-patient": {
         "title": "Quản lý bệnh nhân khám bệnh",
-        "choose-date": "Chọn ngày khám"
+        "choose-date": "Chọn ngày khám",
+        "stt": "STT",
+        "time": "Thời gian",
+        "name": "Họ và tên",
+        "gender": "Giới tính",
+        "address": "Địa chỉ",
+        "actions": "Hành động",
+        "confirm": "Xác nhận"
     },
     "patient": {
         "detail-doctor": {
@@ -150,5 +160,18 @@
             "specialty": "Chọn chuyên khoa",
             "clinic": "Chọn phòng khám"
         }
+    },
+    "history": {
+        "title": "Xem lịch sử khám bệnh",
+        "tutorial": "Hướng dẫn: Để tra cứu lịch sử khám bệnh vui lòng nhập email",
+        "failed": "Email không chính xác",
+        "true": "Dưới đây là lịch sử khám bệnh của bạn",
+        "email": "Địa chỉ email",
+        "confirm": "Xác nhận",
+        "stt": "STT",
+        "namedoctor": "Tên bác sĩ",
+        "date": "Ngày khám",
+        "time": "Thời gian",
+        "diagnosis": "Chẩn đoán của bác sĩ"
     }
 }
