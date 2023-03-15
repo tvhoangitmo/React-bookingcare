@@ -17,6 +17,7 @@ class OutstandingDoctor extends Component {
         }
     }
 
+    ///test brach
     componentDidUpdate(prevProps, prevState, snapshot) {
         if (prevProps.topDoctorsRedux !== this.props.topDoctorsRedux) {
             this.setState({
@@ -95,7 +96,6 @@ class OutstandingDoctor extends Component {
                                             </div>
                                         )
                                     })
-
                                 }
                             </Slider>
                         </div>
